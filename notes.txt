@@ -1,0 +1,8 @@
+datePicker{
+    add datePicker to start and end dates for rent.
+}
+
+weather{
+    perhaps sideBar with info about the weather during your rental, following your route;
+    perhaps option to notify you for the weather in the closest large city;
+}
