@@ -4,14 +4,14 @@ body{
 
 #pickUpPlace{
     display: block;
-    width:30%;
+    width:50%;
     margin:0;
     padding:0;
 }
 
 #deliveryPlace{
     display: block;
-    width:30%;
+    width:50%;
     margin:0;
     padding:0;
 }
@@ -29,13 +29,9 @@ body{
 }
 
 #findRentalButton{
-    width:30%;
+    width:50%;
     margin:0;
     padding:0;
-}
-
-.invissible {
-    display: none;
 }
 
 #login-form{
@@ -44,6 +40,7 @@ body{
 
 .float-left {
     float: left;
+    width: 40%;
     height: 250px;
 }
 
