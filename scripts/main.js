@@ -13,5 +13,6 @@ $loginBtn.on('click', function () {
             $('#form-container').html(data);
             isShowed = true;
         }
+        $('#register').toggleClass('hidden');
     });
 });

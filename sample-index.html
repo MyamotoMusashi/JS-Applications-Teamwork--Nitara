@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title></title>
+    <title>Nitara Rent-a-Car</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -11,33 +11,61 @@
 </head>
 
 <body>
-    <form class="float-left">
-        <label for="pickUpPlace">Enter PickUp Place:</label>
-        <input type="text" name="" value="" id="pickUpPlace" placeholder="PickUp Place">
-        <label for="deliveryPlace">Enter Delivery Place:</label>
-        <input type="text" name="" value="" id="deliveryPlace" placeholder="Delivery Place">
-        <label for="startRentDate">Start Date</label>
-        <input type="text" name="" value="" id="startRentDate" placeholder="Start Date"><br>
-        <label for="endRentDate">End Date</label>
-        <input type="text" name="" value="" id="endRentDate" placeholder="End Date">
-        <button id="findRentalButton" class="btn btn-block btn-primary">Find Available Rentals</button>
-    </form>
-    <div id="login-form" class="container float-right">
-        <a href="#" id="login" class="btn btn-login btn-primary">Login</a>
-        <div id="form-container">
+    <header id="header">
+        <div id="logo-container">
+            <img src="./imgs/header-logo.png" alt="logo" id="main-logo">
         </div>
-    </div>
-    <div class="clearfix"></div>
-    <table>
-        <tr>
-            <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
-            <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
-        </tr>
-        <tr>
-            <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
-            <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
-        </tr>
-    </table>
+        <div id="login-container" class="float-right">
+            <div id="login-form">
+                <a href="#" id="login" class="btn btn-login btn-primary">Login</a>
+                <a href="#" id="register" class="btn btn-register btn-primary hidden">Register</a>
+                <div id="form-container">
+                </div>
+            </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
+    <nav id="main-nav">
+        <ul id="nav-ul">
+            <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+            <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+            <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+            <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+            <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+            <li class="nav-menu-item"><span class="color-white">Search <input type="text" class="nav-search">
+            </li>
+        </ul>
+    </nav>
+    <hr>
+    <main id="main">
+        <section id="section">
+            <form>
+                <label for="pickUpPlace">Enter PickUp Place:</label>
+                <input type="text" name="" value="" id="pickUpPlace" placeholder="PickUp Place">
+                <label for="deliveryPlace">Enter Delivery Place:</label>
+                <input type="text" name="" value="" id="deliveryPlace" placeholder="Delivery Place">
+                <label for="startRentDate">Start Date</label>
+                <input type="text" name="" value="" id="startRentDate" placeholder="Start Date"><br>
+                <label for="endRentDate">End Date</label>
+                <input type="text" name="" value="" id="endRentDate" placeholder="End Date">
+                <button id="findRentalButton" class="btn btn-block btn-primary">Find Available Rentals</button>
+            </form>
+        </section>
+        <table>
+            <tr>
+                <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
+                <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
+            </tr>
+            <tr>
+                <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
+                <td><img src="http://cdn.xl.thumbs.canstockphoto.com/canstock7756456.jpg"></td>
+            </tr>
+        </table>
+    </main>
+    <footer id="footer">
+
+    </footer>
+    
     <script src="./bower_components/handlebars/handlebars.js"></script>
     <script src="./node_modules/systemjs/dist/system.js"></script>
     <script src="./scripts/config.js"></script>

@@ -1,5 +1,66 @@
+html, body, header, nav, main, section, div, ul, li, a, label, form, img, input {
+    margin: 0;
+    padding: 0;
+}
+
 body{
     background-color: #F3F3F3;
+}
+
+#header {
+    display: flex;
+    margin: 5px;
+    height: 280px;
+}
+
+header #logo-container {
+    width: 40%;
+}
+
+#logo-container  #main-logo {
+    width: 80%;
+}
+
+header #login-container {
+    width: 55%;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+#nav-ul {
+    list-style-type: none;
+    display: flex;
+    
+}
+
+#nav-ul .nav-menu-item {
+    width: 15%;
+    margin: 2px;
+    height: 35px;
+    padding: 3px 5px;
+    background-color: #025AA5;
+    border-radius: 5px;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.nav-menu-item a , .color-white{
+    color: white;
+}
+
+.nav-search {
+    width: 120px;
+    height: 28px;
+}
+
+#main {
+    display: flex;
+}
+
+#section {
+    width: 33%;
 }
 
 #pickUpPlace{
@@ -35,17 +96,15 @@ body{
 }
 
 #login-form{
-    width: 30%;
-}
-
-.float-left {
-    float: left;
-    width: 40%;
-    height: 250px;
+    width: 35%;
 }
 
 .float-right {
     float: right;
+}
+
+.hidden {
+    display: none;
 }
 
 .clearfix {
