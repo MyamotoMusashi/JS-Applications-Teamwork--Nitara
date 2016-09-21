@@ -1,0 +1,23 @@
+{
+  "name": "nitara-rent-a-car",
+  "version": "1.0.0",
+  "description": "*****************************************",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MyamotoMusashi/JS-Applications-Teamwork--Nitara.git"
+  },
+  "author": "nitara-team",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MyamotoMusashi/JS-Applications-Teamwork--Nitara/issues"
+  },
+  "homepage": "https://github.com/MyamotoMusashi/JS-Applications-Teamwork--Nitara#readme",
+  "dependencies": {
+    "systemjs": "^0.19.38",
+    "systemjs-plugin-babel": "0.0.15"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "name": "nitara-rent-a-car",
+  "description": "*****************************************",
+  "main": "index.js",
+  "authors": [
+    "nitara-team"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/MyamotoMusashi/JS-Applications-Teamwork--Nitara",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.0",
+    "bootstrap": "v4.0.0-alpha.4",
+    "handlebars": "^4.0.5"
+  }
+}

@@ -1,0 +1,59 @@
+body{
+    background-color: #F3F3F3;
+}
+
+#pickUpPlace{
+    display: block;
+    width:30%;
+    margin:0;
+    padding:0;
+}
+
+#deliveryPlace{
+    display: block;
+    width:30%;
+    margin:0;
+    padding:0;
+}
+
+#startRentDate{
+    width:20%;
+    margin:0;
+    padding:0;
+}
+
+#endRentDate{
+    width:20%;
+    margin:0;
+    padding:0;
+}
+
+#findRentalButton{
+    width:30%;
+    margin:0;
+    padding:0;
+}
+
+.invissible {
+    display: none;
+}
+
+#login-form{
+    width: 30%;
+}
+
+.float-left {
+    float: left;
+    height: 250px;
+}
+
+.float-right {
+    float: right;
+}
+
+.clearfix {
+    clear: both;
+    content: '.';
+    height: 0;
+    visibility: hidden;
+}
