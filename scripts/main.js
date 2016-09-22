@@ -2,26 +2,36 @@ import 'jquery';
 import {userModul} from 'user';
 import {carModule} from 'car';
 
-let isShowed = false;
+let isShowedLogForm = false;
 
 let $loginBtn = $('#login');
-$loginBtn.on('click', function () {
+$loginBtn.on('click', function() {
     let url = "../templates/login-template";
-    $.get(url, function (data) {
-        if (isShowed) {
+    $.get(url, function(data) {
+        if (isShowedLogForm) {
             $('#form-container').html('');
-            isShowed = false;
+            isShowedLogForm = false;
         } else {
             $('#form-container').html(data);
-            isShowed = true;
+            isShowedLogForm = true;
         }
         $('#register').toggleClass('hidden');
     });
 });
 
-let userOne = userModul.createUser('Pavel', 'Angelov', '12345678'),
-    userTwo = userModul.createUser('Pavel', 'Angelov', '12345678'),
-    car = carModule.createCar('Mazda', '6', 2004, 20);
+let isShowedRegForm = false;
 
-userOne.addCar(car);
-console.log(userOne);
+let $registerBtn = $('#register');
+$registerBtn.on('click', function() {
+    let url = "../templates/register-template";
+    $.get(url, function(data) {
+        if (isShowedRegForm) {
+            $('#form-container').html('');
+            isShowedRegForm = false;
+            $('#register').toggleClass('hidden');
+        } else {
+            $('#form-container').html(data);
+            isShowedRegForm = true;
+        }
+    });
+});
