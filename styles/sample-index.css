@@ -34,10 +34,15 @@ header #logo-container {
     width: 80%;
 }
 
-header #login-container {
+#login-container {
     width: 55%;
     display: flex;
     flex-direction: row-reverse;
+}
+
+#logged-user {
+    width: 50%;
+    text-align: right;
 }
 
 #nav-ul {

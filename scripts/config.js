@@ -9,7 +9,8 @@
                 'user': '../scripts/models/user.js',
                 'car': '../scripts/models/car.js',
                 'userValidator': '../scripts/models/userValidations.js',
-                'carValidator': '../scripts/models/carValidator.js'
+                'carValidator': '../scripts/models/carValidator.js',
+                'db': '../db/db.js'
             }
 });
         System.import('main');

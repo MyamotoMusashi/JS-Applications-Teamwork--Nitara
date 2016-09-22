@@ -1,0 +1,2 @@
+    <a href="#" id="logged-username">{{name}}</a>
+    <a href="#" id="logout-btn" class="btn btn-danger">Logout</a>
