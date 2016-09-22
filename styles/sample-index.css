@@ -1,9 +1,22 @@
-html, body, header, nav, main, section, div, ul, li, a, label, form, img, input {
+html,
+body,
+header,
+nav,
+main,
+section,
+div,
+ul,
+li,
+a,
+label,
+form,
+img,
+input {
     margin: 0;
     padding: 0;
 }
 
-body{
+body {
     background-color: #F3F3F3;
 }
 
@@ -17,7 +30,7 @@ header #logo-container {
     width: 40%;
 }
 
-#logo-container  #main-logo {
+#logo-container #main-logo {
     width: 80%;
 }
 
@@ -30,7 +43,6 @@ header #login-container {
 #nav-ul {
     list-style-type: none;
     display: flex;
-    
 }
 
 #nav-ul .nav-menu-item {
@@ -46,7 +58,8 @@ header #login-container {
     text-align: center;
 }
 
-.nav-menu-item a , .color-white{
+.nav-menu-item a,
+.color-white {
     color: white;
 }
 
@@ -63,39 +76,39 @@ header #login-container {
     width: 33%;
 }
 
-#pickUpPlace{
+#pickUpPlace {
     display: block;
-    width:50%;
-    margin:0;
-    padding:0;
+    width: 50%;
+    margin: 0;
+    padding: 0;
 }
 
-#deliveryPlace{
+#deliveryPlace {
     display: block;
-    width:50%;
-    margin:0;
-    padding:0;
+    width: 50%;
+    margin: 0;
+    padding: 0;
 }
 
-#startRentDate{
-    width:20%;
-    margin:0;
-    padding:0;
+#startRentDate {
+    width: 20%;
+    margin: 0;
+    padding: 0;
 }
 
-#endRentDate{
-    width:20%;
-    margin:0;
-    padding:0;
+#endRentDate {
+    width: 20%;
+    margin: 0;
+    padding: 0;
 }
 
-#findRentalButton{
-    width:50%;
-    margin:0;
-    padding:0;
+#findRentalButton {
+    width: 50%;
+    margin: 0;
+    padding: 0;
 }
 
-#login-form{
+#login-form {
     width: 35%;
 }
 

@@ -1,0 +1,8 @@
+<form action="form-register">
+        <h4 class="register-heading">Please register</h4>
+        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">
+        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">
+        <input type="text" id="firstName" class="form-control" placeholder="First name" required="">
+        <input type="text" id="lastName" class="form-control" placeholder="Last name" required="">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+    </form>
