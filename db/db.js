@@ -42,6 +42,8 @@ let users = (function() {
                 name: `${user.firstname} ${user.lastname}`,
                 email: user.email
             };
+        } else {
+            return null;
         }
     }
 
