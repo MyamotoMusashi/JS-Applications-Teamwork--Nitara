@@ -1,6 +1,6 @@
 import {UserValidator as validator} from 'userValidator';
 
-let userModul = (function () {
+let userModule = (function () {
 
     class User {
         constructor(firstname, lastname, password, email) {
@@ -89,4 +89,4 @@ let userModul = (function () {
     }
 } ());
 
-export {userModul};
+export {userModule};

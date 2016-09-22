@@ -7,6 +7,7 @@ let carModule = function () {
             this.pricePerDay = pricePerDay;
             this.id = getId();
             this.extras = extras || {};
+            this.pictures = [];
             this.isHired = false;
         }
 
@@ -36,6 +37,61 @@ let carModule = function () {
         }
         set pricePerDay(value) {
             this._pricePerDay = value;
+        }
+
+        get isHired() {
+            return this._isHired;
+        }
+        set isHired(value) {
+            if (typeof value !== 'boolean') {
+                throw new Error('Car isHired param must be boolean!');
+            }
+
+            this._isHired = value;
+        }
+        get gears() {
+            return this._gears;
+        }
+        set gears() {
+            this._gears = value;
+        }
+
+        get seats() {
+            return this._seats;
+        }
+        set seats(value) {
+            this._seats = value;
+        }
+
+        get insurance() {
+            return this._insurance;
+        }
+        set insurance(value) {
+            this._insurance = value;
+        }
+
+        getPictures() {
+            return this.pictures.slice(0);
+        }
+
+        addPictures(...picturesArr) {
+            if (Array.isArray(picturesArr[0])) {
+                picturesArr = picturesArr[0];
+            }
+
+            let lastPictureId = 0;
+            if (this.pictures.length) {
+                lastPictureId = this.pictures.length;
+            }
+
+            picturesArr.forEach(function(pictureSrc) {
+                this.pictures.push({
+                    id: lastPictureId,
+                    src: pictureSrc
+                });
+
+                lastPictureId += 1;
+            });
         }
     }
 

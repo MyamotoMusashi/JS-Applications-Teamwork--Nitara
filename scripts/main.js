@@ -1,5 +1,5 @@
 import 'jquery';
-import {userModul} from 'user';
+import {userModule} from 'user';
 import {carModule} from 'car';
 import {users} from 'db';
 

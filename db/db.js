@@ -1,4 +1,5 @@
 import {userModul} from 'user';
+import {carModule} from 'car';
 
 let person = userModul.createUser('Pave', 'Angelov', '12345678', 'some@email.com');
 
@@ -81,9 +82,14 @@ let users = (function() {
     return {
         registerUser,
         loginUser,
+        logoutUser,
         listUsers
     }
 
 }());
 
-export {users};
+let cars = function() {
+
+}();
+
+export {users, cars};
