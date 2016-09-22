@@ -1,4 +1,6 @@
 import 'jquery';
+import {userModul} from 'user';
+import {carModule} from 'car';
 
 let isShowed = false;
 
@@ -16,3 +18,10 @@ $loginBtn.on('click', function () {
         $('#register').toggleClass('hidden');
     });
 });
+
+let userOne = userModul.createUser('Pavel', 'Angelov', '12345678'),
+    userTwo = userModul.createUser('Pavel', 'Angelov', '12345678'),
+    car = carModule.createCar('Mazda', '6', 2004, 20);
+
+userOne.addCar(car);
+console.log(userOne);
