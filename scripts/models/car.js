@@ -52,7 +52,7 @@ let carModule = function () {
         get gears() {
             return this._gears;
         }
-        set gears() {
+        set gears(value) {
             this._gears = value;
         }
 

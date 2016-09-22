@@ -1,7 +1,7 @@
-import {userModul} from 'user';
+import {userModule} from 'user';
 import {carModule} from 'car';
 
-let person = userModul.createUser('Pave', 'Angelov', '12345678', 'some@email.com');
+let person = userModule.createUser('Pave', 'Angelov', '12345678', 'some@email.com');
 
 let users = (function() {
     let loggedUsers = [],
@@ -89,7 +89,37 @@ let users = (function() {
 }());
 
 let cars = function() {
+    let availableCars = [];
 
+    function getAllCars() {
+        return availableCars.slice(0);
+    }
+
+    function getAllFreeCars() {
+        let cars = [];
+
+        availableCars.forEach(function(car) {
+            if (!car.isHired) {
+                cars.push(deepCopyCar(car));
+            }
+        });
+
+        return cars;
+    }
+
+    function addCar(car) {
+        this.availableCars.push(car);
+    }
+
+    function deepCopyCar(car) {
+        return JSON.parse(JSON.stringify(car));
+    }
+
+    return {
+        getAllCars,
+        getAllFreeCars,
+        addCar
+    }
 }();
 
 export {users, cars};

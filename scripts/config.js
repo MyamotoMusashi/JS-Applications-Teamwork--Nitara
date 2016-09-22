@@ -10,7 +10,8 @@
                 'car': '../scripts/models/car.js',
                 'userValidator': '../scripts/models/userValidations.js',
                 'carValidator': '../scripts/models/carValidator.js',
-                'db': '../db/db.js'
+                'db': '../db/db.js',
+                'login-register': '../scripts/login-register.js'
             }
 });
         System.import('main');
