@@ -4,6 +4,7 @@ import {userModule} from 'user';
 import {users} from 'db';
 
 const USERNAME_STORAGE_KEY = 'username-key';
+const AUTHKEY_STORAGE_KEY = 'authkey-key';
 
 let isShowedLogForm = false,
     isShowedRegForm = false;
@@ -76,6 +77,7 @@ function getLoggedUserData() {
         
         if (user) {
             localStorage.setItem(USERNAME_STORAGE_KEY, user.name);
+            localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
             resolve(user);
         } else {
             let errorMsg = 'Invalid email or password!';
@@ -130,6 +132,7 @@ function attachLogoutEvent($element) {
     return new Promise((resolve, reject) => {
         $element.on('click', '#logout-user', function () {
         localStorage.removeItem(USERNAME_STORAGE_KEY);
+        localStorage.removeItem(AUTHKEY_STORAGE_KEY);
         showLoggin();
         resolve();
         });
