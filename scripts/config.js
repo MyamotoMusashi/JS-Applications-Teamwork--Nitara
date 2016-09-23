@@ -11,7 +11,8 @@
                 'userValidator': '../scripts/models/userValidations.js',
                 'carValidator': '../scripts/models/carValidator.js',
                 'db': '../db/db.js',
-                'login-register': '../scripts/login-register.js'
+                'login-register': '../scripts/login-register.js',
+                'cryptoJS': '../bower_components/crypto-js/build/rollups/sha1.js'
             }
 });
         System.import('main');

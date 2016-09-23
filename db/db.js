@@ -1,7 +1,21 @@
 import {userModule} from 'user';
 import {carModule} from 'car';
 
-let person = userModule.createUser('Pave', 'Angelov', '12345678', 'some@email.com');
+let person = userModule.createUser('Pave', 'Angelov', '7c222fb2927d828af22f592134e8932480637c0d', 'some@email.com');
+
+var generateAuthKey = (function() {
+  var chars = '1234567890)(*&^%$#@!)',
+    length = 60;
+  return function(username) {
+    var authKey = username,
+      index;
+    while (authKey.length < length) {
+      index = (Math.random() * chars.length) | 0;
+      authKey += chars[index];
+    }
+    return authKey;
+  };
+}());
 
 let users = (function() {
     let loggedUsers = [],
@@ -30,6 +44,8 @@ let users = (function() {
         if (registredUsers.find( user => user.email === userToAdd.email)) {
             throw new Error('This email is already used!');
         }
+
+        userToAdd.authKey= generateAuthKey(userToAdd.email);
         
         registredUsers.push(userToAdd);
     }

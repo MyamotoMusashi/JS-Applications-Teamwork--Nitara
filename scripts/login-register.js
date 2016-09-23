@@ -1,4 +1,5 @@
 import 'jquery';
+import 'cryptoJS';
 import {userModule} from 'user';
 import {users} from 'db';
 
@@ -59,13 +60,19 @@ function showHideRegister() {
 function getLoggedUserData() {
     return new Promise((resolve, reject) => {
         let email = $('#inputEmail').val(),
-            pass = $('#inputPassword').val();
+            inputPass = $('#inputPassword').val();
+        
+        if (!inputPass.length || inputPass.length < 8) {
+            throw new Error('password must have minimum 8 symbols!')
+        }
 
-        let logged = users.loginUser(email, pass);
+        let hashPasword = CryptoJS.SHA1(inputPass).toString();
+        console.log(hashPasword.length);
+        
+        let logged = users.loginUser(email, hashPasword);
         
         if (logged) {
             resolve(logged);
-            console.log('resolved');
         } else {
             let errorMsg = 'Invalid email or password!';
             reject(errorMsg);

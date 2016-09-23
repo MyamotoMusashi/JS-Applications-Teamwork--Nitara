@@ -36,8 +36,8 @@ class UserValidator {
             throw new Error(`User password cannot be undefined!`);
         }
 
-        if (this.validateStringLength(value, 8)) {
-            throw new Error(`Password must be a string with minimum 8 symbols!`);
+        if (this.validateStringLength(value, 40)) {
+            throw new Error(`Password must be a string with minimum 40 symbols!`);
         }
     }
 }
