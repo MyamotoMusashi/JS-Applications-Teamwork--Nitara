@@ -19,7 +19,7 @@ var generateAuthKey = (function() {
 
 let users = (function() {
     let loggedUsers = [],
-        registredUsers = [person];
+        registredUsers = [];
     
     // Check if user with this email and password exist.
     function checkIfUserExist(email, password) {
@@ -57,19 +57,17 @@ let users = (function() {
             addLoggedUser(user);
             return {
                 name: `${user.firstname} ${user.lastname}`,
-                email: user.email
+                authKey: user.authKey
             };
         } else {
             return null;
         }
     }
 
-    // Add user to logged users
     function addLoggedUser(user) {
         loggedUsers.push(user);
     }
 
-    // Remove user from loggedUsers.
     function logoutUser(user) {
         let userIndex = -1;
         loggedUsers.forEach(function(us, index) {
@@ -137,5 +135,7 @@ let cars = function() {
         addCar
     }
 }();
+
+users.registerUser(person);
 
 export {users, cars};
