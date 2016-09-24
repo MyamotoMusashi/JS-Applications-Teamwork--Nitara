@@ -24,7 +24,9 @@ $('#form-container').on('click', '#sign-in-btn', function () {
 
 $('#login-form').on('click', '#register', function() {
     showHideRegister()
-        .then(attachRegisterEvent);
+        .then(attachRegisterEvent)
+        .then(console.log)
+        .catch(console.log);
 });
 
 function showHideLogin() {
@@ -73,8 +75,7 @@ function getLoggedUserData() {
                 localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
                 resolve(user);
             })
-            .catch(err => reject('Invalid email or password!'));
-        
+            .catch(err => console.log('Invalid email or password!'));
     });
 }
 
@@ -93,9 +94,11 @@ function attachRegisterEvent() {
             
             let hashPasword = CryptoJS.SHA1(pass).toString();
             let user = userModule.createUser(firstname, lastname, hashPasword, email);
-            users.registerUser(user);
+            users.registerUser(user)
+                .catch(err => console.log(err))
+                .then(console.log);
 
-            resolve();
+            resolve('Successfully registred user!');
         });
     });
 }

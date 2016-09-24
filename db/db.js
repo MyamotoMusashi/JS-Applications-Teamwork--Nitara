@@ -48,27 +48,38 @@ let users = (function() {
     }
 
     function registerUser(userToAdd) {
-        let registredUsers = getUsersFromDB();
-        
-        if (registredUsers.result) {
-            if (registredUsers.find( user => user.Email === userToAdd.email)) {
-                throw new Error('This email is already used!');
-            }
-        }
+        return new Promise((resolve, reject) => {
+            getUsersFromDB()
+            .then(function(data) {
+                let isExist = false;
+                if (data.count) {
+                    let usersArr = data.result;
+                    console.log(usersArr);
 
-        let userForDB = {
-            Firstname: userToAdd.firstname,
-            Lastname: userToAdd.lastname,
-            PasswordHash: userToAdd.password,
-            Email: userToAdd.email,
-            Auth_Key: generateAuthKey(userToAdd.email)
-        };
+                    usersArr.forEach(function(user) {
+                        console.log(user);
+                        if (userToAdd.email === user.Email) {
+                            isExist = true;
+                            return;
+                        }
+                    });
+                }
 
-        console.log(userForDB.PasswordHash);
-        console.log(userToAdd.password);
-
-        usersData.create(userForDB)
-            .then((data) => console.log(data));
+                if (isExist) {
+                    reject('This email is already used!');
+                } else {
+                    usersData.create({
+                        Firstname: userToAdd.firstname,
+                        Lastname: userToAdd.lastname,
+                        PasswordHash: userToAdd.password,
+                        Email: userToAdd.email,
+                        Auth_Key: generateAuthKey(userToAdd.email)
+                    });
+                    resolve('Successfully registred user!');
+                }
+                
+            });
+        });
     }
 
     function loginUser(email, password) {
