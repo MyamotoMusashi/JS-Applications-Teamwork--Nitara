@@ -24,7 +24,9 @@ $('#form-container').on('click', '#sign-in-btn', function () {
 
 $('#login-form').on('click', '#register', function() {
     showHideRegister()
-        .then(attachRegisterEvent);
+        .then(attachRegisterEvent)
+        .then(console.log)
+        .catch(console.log);
 });
 
 function showHideLogin() {
@@ -64,25 +66,16 @@ function getLoggedUserData() {
     return new Promise((resolve, reject) => {
         let email = $('#inputEmail').val(),
             inputPass = $('#inputPassword').val();
-        
-        if (!inputPass.length || inputPass.length < 8) {
-            throw new Error('password must have minimum 8 symbols!')
-        }
 
         let hashPasword = CryptoJS.SHA1(inputPass).toString();
-        console.log(hashPasword.length);
         
-        let user = users.loginUser(email, hashPasword);
-        console.log(user);
-        
-        if (user) {
-            localStorage.setItem(USERNAME_STORAGE_KEY, user.name);
-            localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
-            resolve(user);
-        } else {
-            let errorMsg = 'Invalid email or password!';
-            reject(errorMsg);
-        }
+        users.loginUser(email, hashPasword)
+            .then(function(user) {
+                localStorage.setItem(USERNAME_STORAGE_KEY, user.name);
+                localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
+                resolve(user);
+            })
+            .catch(err => console.log('Invalid email or password!'));
     });
 }
 
@@ -93,11 +86,19 @@ function attachRegisterEvent() {
                 pass = $('#register-form #inputPassword').val(),
                 firstname = $('#register-form #firstName').val(),
                 lastname = $('#register-form #lastName').val();
+            
+            
+            if (!pass.length || pass.length < 8) {
+                throw new Error('password must have minimum 8 symbols!');
+            }
+            
+            let hashPasword = CryptoJS.SHA1(pass).toString();
+            let user = userModule.createUser(firstname, lastname, hashPasword, email);
+            users.registerUser(user)
+                .catch(err => console.log(err))
+                .then(console.log);
 
-            let user = userModule.createUser(firstname, lastname, pass, email);
-            users.registerUser(user);
-
-            resolve();
+            resolve('Successfully registred user!');
         });
     });
 }

@@ -1,7 +1,26 @@
 import {userModule} from 'user';
 import {carModule} from 'car';
 
-let person = userModule.createUser('Pave', 'Angelov', '7c222fb2927d828af22f592134e8932480637c0d', 'some@email.com');
+const API_KEY = 'iohp9okes3xh165v';
+const el = new Everlive(API_KEY);
+let usersData = el.data('User');
+
+function getUsersFromDB() {
+    return new Promise((resolve, reject) => {
+        usersData.get()
+                     .then(function(usersFromDB) {
+                         resolve(usersFromDB);
+                     }, function(error) {
+                         reject(JSON.stringify(error));
+                     });
+    }); 
+}
+
+function getUserById(userId) {
+    let user = usersData.getById(userId.toString());
+
+    return user;
+}
 
 var generateAuthKey = (function() {
   var chars = '1234567890)(*&^%$#@!)',
@@ -18,48 +37,86 @@ var generateAuthKey = (function() {
 }());
 
 let users = (function() {
-    let loggedUsers = [],
-        registredUsers = [];
-    
     function checkIfUserExist(email, password) {
-        let user = registredUsers
-            .find(user => user.email === email && user.password === password);
+        // let registredUsers = getUsersFromDB();
+
+        // console.log(registredUsers);    
+        
+        let user = {};
 
         return user;
     }
 
     function registerUser(userToAdd) {
-        if (registredUsers.find( user => user.email === userToAdd.email)) {
-            throw new Error('This email is already used!');
-        }
+        return new Promise((resolve, reject) => {
+            getUsersFromDB()
+            .then(function(data) {
+                let isExist = false;
+                if (data.count) {
+                    let usersArr = data.result;
+                    console.log(usersArr);
 
-        userToAdd.authKey= generateAuthKey(userToAdd.email);
-        
-        registredUsers.push(userToAdd);
+                    usersArr.forEach(function(user) {
+                        console.log(user);
+                        if (userToAdd.email === user.Email) {
+                            isExist = true;
+                            return;
+                        }
+                    });
+                }
+
+                if (isExist) {
+                    reject('This email is already used!');
+                } else {
+                    usersData.create({
+                        Firstname: userToAdd.firstname,
+                        Lastname: userToAdd.lastname,
+                        PasswordHash: userToAdd.password,
+                        Email: userToAdd.email,
+                        Auth_Key: generateAuthKey(userToAdd.email)
+                    });
+                    resolve('Successfully registred user!');
+                }
+                
+            });
+        });
     }
 
     function loginUser(email, password) {
-        let user = checkIfUserExist(email, password);
-
-        if (user) {
-            return {
-                name: `${user.firstname} ${user.lastname}`,
-                authKey: user.authKey
-            };
-        } else {
-            return null;
-        }
+        return new Promise((resolve, reject) => {
+            getUsersFromDB()
+            .then(function(data) {
+                let userToLog = null;
+                if (data.count) {
+                    let usersArr = data.result;
+                    usersArr.forEach(function(user) {
+                        if (user.Email === email && user.PasswordHash === password) {
+                            userToLog = {
+                                name: `${user.Firstname} ${user.Lastname}`,
+                                authKey: user.Auth_Key
+                            };
+                        }
+                    });
+                    resolve(userToLog);
+                } else {
+                    reject();
+                }
+            });
+        });
     }
 
     function listUsers() {
-        let users = [];
+        let usersToReturn = [],
+            registredUsers = getUsersFromDB();
+
         registredUsers.forEach(function(user) {
-            users.push({
-                name: `${user.firstname} ${user.lastname}`,
-                email: user.email
+            usersToReturn.push({
+                name: `${user.Firstname} ${user.Lastname}`,
+                email: user.Email
             });
         });
-        return users;
+
+        return usersToReturn;
     }
 
     return {
@@ -103,6 +160,6 @@ let cars = function() {
     };
 }();
 
-users.registerUser(person);
+//users.registerUser(person);
 
 export {users, cars};

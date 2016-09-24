@@ -8,11 +8,6 @@ let userModule = (function () {
             this.lastname = lastname;
             this.password = password;
             this.email = email;
-            this.leasedCars = [];
-            this.id = getId();
-            //this.age = age;
-            //this.driverLicense = driverLicense;
-            //this.address = address;
         }
 
         get firstname() {
@@ -42,43 +37,14 @@ let userModule = (function () {
 
             this._password = value;
         }
-
-        addCar(carToAdd) {
-            if (!carToAdd.isHired) {
-                this.leasedCars.push(carToAdd);
-                carToAdd.isHired = true;
-            } else {
-                throw new Error('This car is already hired!');
-            }
-        }
-
-        releaseCar(carId) {
-            let index = this.getCarById(carId);
-
-            if(index >= 0) {
-                this.leasedCars.splice(index, 1);
-            }
-        }   
-
-        getCarById(id) {
-            let carIndex = -1;
-
-            this.leasedCars.find(function (value, index) {
-                if (value.id === id) {
-                    carIndex = index;
-                }
-            });
-
-            return carIndex;
-        }
     }
 
-    let getId = function getId() {
-        let lastId = 0;
-        return function () {
-            return ++lastId;
-        };
-    } ();
+    // let getId = function getId() {
+    //     let lastId = 0;
+    //     return function () {
+    //         return ++lastId;
+    //     };
+    // } ();
 
     function createUser(firstname, lastname, password, email) {
         return new User(firstname, lastname, password, email);
