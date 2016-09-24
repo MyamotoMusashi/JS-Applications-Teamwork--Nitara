@@ -64,10 +64,6 @@ function getLoggedUserData() {
     return new Promise((resolve, reject) => {
         let email = $('#inputEmail').val(),
             inputPass = $('#inputPassword').val();
-        
-        if (!inputPass.length || inputPass.length < 8) {
-            throw new Error('password must have minimum 8 symbols!');
-        }
 
         let hashPasword = CryptoJS.SHA1(inputPass).toString();
         console.log(hashPasword.length);
@@ -93,8 +89,14 @@ function attachRegisterEvent() {
                 pass = $('#register-form #inputPassword').val(),
                 firstname = $('#register-form #firstName').val(),
                 lastname = $('#register-form #lastName').val();
-
-            let user = userModule.createUser(firstname, lastname, pass, email);
+            
+            
+            if (!pass.length || pass.length < 8) {
+                throw new Error('password must have minimum 8 symbols!');
+            }
+            
+            let hashPasword = CryptoJS.SHA1(pass).toString();
+            let user = userModule.createUser(firstname, lastname, hashPasword, email);
             users.registerUser(user);
 
             resolve();

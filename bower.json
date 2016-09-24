@@ -19,6 +19,7 @@
     "bootstrap": "v4.0.0-alpha.4",
     "handlebars": "^4.0.5",
     "cryptojslib": "^3.1.2",
-    "crypto-js": "CryptoJS#^3.1.12"
+    "crypto-js": "CryptoJS#^3.1.12",
+    "everlive": "^1.7.2"
   }
 }
