@@ -66,7 +66,7 @@ function getLoggedUserData() {
             inputPass = $('#inputPassword').val();
         
         if (!inputPass.length || inputPass.length < 8) {
-            throw new Error('password must have minimum 8 symbols!')
+            throw new Error('password must have minimum 8 symbols!');
         }
 
         let hashPasword = CryptoJS.SHA1(inputPass).toString();
