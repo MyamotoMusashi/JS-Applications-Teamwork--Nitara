@@ -15,4 +15,4 @@
                 'cryptoJS': '../bower_components/crypto-js/build/rollups/sha1.js'
             }
 });
-        System.import('main');
+        //System.import('main');
