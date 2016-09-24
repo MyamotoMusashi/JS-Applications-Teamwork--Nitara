@@ -66,19 +66,15 @@ function getLoggedUserData() {
             inputPass = $('#inputPassword').val();
 
         let hashPasword = CryptoJS.SHA1(inputPass).toString();
-        console.log(hashPasword.length);
         
-        let user = users.loginUser(email, hashPasword);
-        console.log(user);
+        users.loginUser(email, hashPasword)
+            .then(function(user) {
+                localStorage.setItem(USERNAME_STORAGE_KEY, user.name);
+                localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
+                resolve(user);
+            })
+            .catch(err => reject('Invalid email or password!'));
         
-        if (user) {
-            localStorage.setItem(USERNAME_STORAGE_KEY, user.name);
-            localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
-            resolve(user);
-        } else {
-            let errorMsg = 'Invalid email or password!';
-            reject(errorMsg);
-        }
     });
 }
 

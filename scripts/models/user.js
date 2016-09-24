@@ -8,7 +8,6 @@ let userModule = (function () {
             this.lastname = lastname;
             this.password = password;
             this.email = email;
-            this.id = getId();
         }
 
         get firstname() {
@@ -40,12 +39,12 @@ let userModule = (function () {
         }
     }
 
-    let getId = function getId() {
-        let lastId = 0;
-        return function () {
-            return ++lastId;
-        };
-    } ();
+    // let getId = function getId() {
+    //     let lastId = 0;
+    //     return function () {
+    //         return ++lastId;
+    //     };
+    // } ();
 
     function createUser(firstname, lastname, password, email) {
         return new User(firstname, lastname, password, email);
