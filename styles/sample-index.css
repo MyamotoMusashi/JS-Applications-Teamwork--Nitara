@@ -131,3 +131,12 @@ header #logo-container {
     height: 0;
     visibility: hidden;
 }
+
+#grid-container {
+    width: 100%
+}
+
+img.img-responive {
+    width: 270px;
+    height: 230px;
+}

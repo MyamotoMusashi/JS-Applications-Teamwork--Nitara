@@ -1,6 +1,8 @@
+import {cars} from '../db/db.js';
+
 var grid = (function () {
-    function build() {
-        var availableCars = [0, 3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    function build(carsArr) {
+        var availableCars = carsArr || [0, 3, 2, 1, 4, 5, 6, 7, 8, 9, 10, 11, 12],
             i, j, carDetails, gridNavigationButton, carDetailsWrapper, gridNavigationElement, totalPagesCount, notDisplayedCarDetailsCount,
             currentCar, currentPageCarDetailsCount, gridParent, gridPreview,
             carDetailsPerPageCount = 4,
@@ -30,18 +32,23 @@ var grid = (function () {
 
                     `<div class="container-fluid">
                            <div class="row">
-                               <div class="col-xl-5">
-                                   <img class="img-responive" src="${availableCars[currentCar].img || "imgs/cars/Skoda-Fabia-1.4.jpg"}" alt="">
-                               </div>
+                                <div class="col-xl-12">
+                                    <h3>${availableCars[currentCar].Brand} : ${availableCars[currentCar].Model}</h3>
+                                </div>
+                            </div> 
+                            <div class="row">
                                <div class="col-xl-7">
+                                   <img class="img-responive" src="${availableCars[currentCar].Image || "imgs/cars/Skoda-Fabia-1.4.jpg"}" alt="">
+                               </div>
+                               <div class="col-xl-5">
                                    <div class="container-fluid">
                                        <div class="row">
                                            <div class="col-xl-5">брой места: </div>
-                                           <div class="col-xl-7">${availableCars[currentCar].seats || 0}</div>
+                                           <div class="col-xl-7">${availableCars[currentCar].Seats || 0}</div>
                                        </div>
                                        <div class="row">
                                            <div class="col-xl-5">гориво: </div>
-                                           <div class="col-xl-7">${availableCars[currentCar].fuel || 0}</div>
+                                           <div class="col-xl-7">${availableCars[currentCar].Fuel || 0}</div>
                                        </div>
                                        <div class="row">
                                            <div class="col-xl-5">скорости: </div>
@@ -62,7 +69,7 @@ var grid = (function () {
                                    </div>
                                </div>
                            </div>
-                       </div>`
+                       </div>`;
                 carDetailsWrapper.children[0].children[0].appendChild(carDetails);
                 currentCar++;
             }
@@ -105,4 +112,7 @@ var grid = (function () {
     };
 } ())
 
-grid.build()
+cars.getAllFreeCars()
+    .then(grid.build);
+
+//grid.build()
