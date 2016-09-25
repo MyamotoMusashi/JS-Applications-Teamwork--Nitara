@@ -10,7 +10,7 @@ $('#show-available-cars').on('click', function() {
         $target.html('Show available cars');
         isGridShowed = false;
     } else {
-        grid.showAvailableCars();
+        grid.showGrid();
         $target.html('Hide gallery');
         isGridShowed = true;
     }
