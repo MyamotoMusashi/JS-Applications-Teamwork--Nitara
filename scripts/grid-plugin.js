@@ -107,12 +107,20 @@ var grid = (function () {
         gridParent.appendChild(gridPreview);
         gridParent.appendChild(gridNavigation);
     }
+
+    function showAvailableCars() {
+        cars.getAllFreeCars()
+            .then(build);
+    }
+
+    function hideGrid() {
+        $('#grid-container').html('');
+    }
+
     return {
-        build: build,
+        showAvailableCars,
+        hideGrid
     };
-} ())
+} ());
 
-cars.getAllFreeCars()
-    .then(grid.build);
-
-//grid.build()
+export { grid }
