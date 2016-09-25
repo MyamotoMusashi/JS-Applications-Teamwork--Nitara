@@ -145,11 +145,9 @@ let cars = function() {
             getCarsFromDB()
                 .then((data) => {
                     let carsArr = data.result;
-                        console.log(carsArr);
                         resolve(carsArr);
                 });
-        })
-        
+        });
     }
 
     function addCar(car) {
