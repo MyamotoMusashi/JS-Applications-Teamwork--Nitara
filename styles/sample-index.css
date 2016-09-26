@@ -83,32 +83,27 @@ header #logo-container {
 
 #pickUpPlace {
     display: block;
-    width: 50%;
     margin: 0;
     padding: 0;
 }
 
 #deliveryPlace {
     display: block;
-    width: 50%;
     margin: 0;
     padding: 0;
 }
 
 #startRentDate {
-    width: 20%;
     margin: 0;
     padding: 0;
 }
 
 #endRentDate {
-    width: 20%;
     margin: 0;
     padding: 0;
 }
 
 #findRentalButton {
-    width: 50%;
     margin: 0;
     padding: 0;
 }
