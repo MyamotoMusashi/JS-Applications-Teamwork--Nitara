@@ -41,7 +41,7 @@
   - Implement a UI for your application
     - Use KendoUI, jQueryUI or implement your own UI logic
   - Use some kind of web data storage, one of the following is Ok
-    - Your backend with Node.js, PHP, ASP.NET, Django, Ruby on Rails, Spring, etc...
+    - Your backend with Node.js, PHP, ASP.NET, Django, Ruby on Rails, Spring, etc..
     - Telerik Backend Services
     - Parse
     - Microsoft Mobile App Services
