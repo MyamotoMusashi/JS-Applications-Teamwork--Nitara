@@ -30,7 +30,7 @@ $('#login-form').on('click', '#register', function() {
 });
 
 function showHideLogin() {
-    let url = "../templates/login-template";
+    let url = "../templates/login.handlebars";
 
     if (isShowedLogForm) {
         $('#form-container').html('');
@@ -48,7 +48,7 @@ function showHideLogin() {
 
 function showHideRegister() {
     return new Promise((resolve, reject) => {
-        let url = "../templates/register-template";
+        let url = "../templates/register.handlebars";
 
         if (isShowedRegForm) {
             $('#form-container').html('');
@@ -111,7 +111,7 @@ function showLoggedUser(user) {
             html;
 
 
-        $.get('../templates/logged-user-template', function(data) {
+        $.get('../templates/logged-user.handlebars', function(data) {
             let template = Handlebars.compile(data);
             html = template(user);
             $container.html(html).css('display', 'block');
