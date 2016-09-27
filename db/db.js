@@ -67,10 +67,8 @@ let users = (function() {
                 let isExist = false;
                 if (data.count) {
                     let usersArr = data.result;
-                    console.log(usersArr);
 
                     usersArr.forEach(function(user) {
-                        console.log(user);
                         if (userToAdd.email === user.Email) {
                             isExist = true;
                             return;
@@ -86,7 +84,8 @@ let users = (function() {
                         Lastname: userToAdd.lastname,
                         PasswordHash: userToAdd.password,
                         Email: userToAdd.email,
-                        Auth_Key: generateAuthKey(userToAdd.email)
+                        Auth_Key: generateAuthKey(userToAdd.email),
+                        AdminRules: false
                     });
                     resolve('Successfully registred user!');
                 }
@@ -106,7 +105,8 @@ let users = (function() {
                         if (user.Email === email && user.PasswordHash === password) {
                             userToLog = {
                                 name: `${user.Firstname} ${user.Lastname}`,
-                                authKey: user.Auth_Key
+                                authKey: user.Auth_Key,
+                                adminRules: user.AdminRules
                             };
                         }
                     });
