@@ -3,7 +3,9 @@ import {carModule} from 'car';
 
 const API_KEY = 'iohp9okes3xh165v';
 const el = new Everlive(API_KEY);
-let usersData = el.data('User');
+
+let usersData = el.data('User'),
+    carsData = el.data('Car');
 
 function getUsersFromDB() {
     return new Promise((resolve, reject) => {
@@ -20,6 +22,17 @@ function getUserById(userId) {
     let user = usersData.getById(userId.toString());
 
     return user;
+}
+
+function getCarsFromDB() {
+    return new Promise((resolve, reject) => {
+        carsData.get()
+                     .then(function(carsFromDB) {
+                         resolve(carsFromDB);
+                     }, function(error) {
+                         reject(JSON.stringify(error));
+                     });
+    }); 
 }
 
 var generateAuthKey = (function() {
@@ -127,26 +140,17 @@ let users = (function() {
 }());
 
 let cars = function() {
-    let availableCars = [];
-
-    function getAllCars() {
-        return availableCars.slice(0);
-    }
-
     function getAllFreeCars() {
-        let cars = [];
-
-        availableCars.forEach(function(car) {
-            if (!car.isHired) {
-                cars.push(deepCopyCar(car));
-            }
+        return new Promise((resolve, reject) => {
+            getCarsFromDB()
+                .then((data) => {
+                    let carsArr = data.result;
+                        resolve(carsArr);
+                });
         });
-
-        return cars;
     }
 
     function addCar(car) {
-        this.availableCars.push(car);
     }
 
     function deepCopyCar(car) {
@@ -154,7 +158,6 @@ let cars = function() {
     }
 
     return {
-        getAllCars,
         getAllFreeCars,
         addCar
     };

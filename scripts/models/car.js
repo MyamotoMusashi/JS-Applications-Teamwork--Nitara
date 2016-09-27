@@ -1,13 +1,12 @@
 let carModule = function () {
     class Car {
-        constructor(brand, model, year, pricePerDay, extras) {
+        constructor(brand, model, fuel, pricePerDay, extras, img) {
             this.brand = brand;
             this.model = model;
-            this.year = year;
+            this.fuel = fuel;
             this.pricePerDay = pricePerDay;
-            this.id = getId();
-            this.extras = extras || {};
-            this.pictures = [];
+            this.extras = extras || [];
+            this.img = img;
             this.isHired = false;
         }
 
@@ -25,11 +24,11 @@ let carModule = function () {
             this._model = value;
         }
 
-        get year() {
-            return this._year;
+        get fuel() {
+            return this._fuel;
         }
-        set year(value) {
-            this._year = value;
+        set fuel(value) {
+            this._fuel = value;
         }
 
         get pricePerDay() {
@@ -70,45 +69,22 @@ let carModule = function () {
             this._insurance = value;
         }
 
-        getPictures() {
-            return this.pictures.slice(0);
+        get img() {
+            return this._img;
         }
 
-        addPictures(...picturesArr) {
-            if (Array.isArray(picturesArr[0])) {
-                picturesArr = picturesArr[0];
-            }
-
-            let lastPictureId = 0;
-            if (this.pictures.length) {
-                lastPictureId = this.pictures.length;
-            }
-
-            picturesArr.forEach(function(pictureSrc) {
-                this.pictures.push({
-                    id: lastPictureId,
-                    src: pictureSrc
-                });
-
-                lastPictureId += 1;
-            });
+        set img(value) {
+            this._img = value;
         }
     }
 
-    let getId = function getId() {
-        let lastId = 0;
-        return function() {
-            return ++lastId;
-        };
-    }();
-
-    function createCar(brand, model, year, pricePerDay) {
-        return new Car(brand, model, year, pricePerDay);
+    function createCar(brand, model, fuel, pricePerDay, img) {
+        return new Car(brand, model, fuel, pricePerDay, img);
     }
 
     return {
         createCar
-    }
+    };
 }();
 
 export {carModule};
