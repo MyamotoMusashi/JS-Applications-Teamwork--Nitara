@@ -1,7 +1,7 @@
 import 'jquery';
 import 'cryptoJS';
-import {userModule} from 'user';
-import {users} from 'db';
+import { userModule } from 'user';
+import { users } from 'db';
 
 const USERNAME_STORAGE_KEY = 'username-key';
 const AUTHKEY_STORAGE_KEY = 'authkey-key';
@@ -12,14 +12,14 @@ let isShowedLogForm = false,
 let $loginBtn = $('#login'),
     $registerBtn = $('#register');
 
-$loginBtn.on('click', function () {
+$loginBtn.on('click', function() {
     showHideLogin();
 });
 
-$('#form-container').on('click', '#sign-in-btn', function () {
-            getLoggedUserData()
-                .then(showLoggedUser)
-                .then(attachLogoutEvent);
+$('#form-container').on('click', '#sign-in-btn', function() {
+    getLoggedUserData()
+        .then(showLoggedUser)
+        .then(attachLogoutEvent);
 });
 
 $('#login-form').on('click', '#register', function() {
@@ -30,30 +30,31 @@ $('#login-form').on('click', '#register', function() {
 });
 
 function showHideLogin() {
-    let url = "../templates/login.handlebars";
+    let url = "../templates/login-template";
 
     if (isShowedLogForm) {
         $('#form-container').html('');
         isShowedLogForm = false;
     } else {
-        $.get(url, function (data) {
+        $.get(url, function(data) {
             $('#form-container').html(data);
             isShowedLogForm = true;
+            isShowedRegForm = false;
         });
     }
-    
+
     $('#register').toggleClass('hidden');
 }
 
 function showHideRegister() {
     return new Promise((resolve, reject) => {
-        let url = "../templates/register.handlebars";
+        let url = "../templates/register-template";
 
         if (isShowedRegForm) {
             $('#form-container').html('');
             isShowedRegForm = false;
         } else {
-            $.get(url, function (data) {
+            $.get(url, function(data) {
                 $('#form-container').html(data);
                 isShowedRegForm = true;
                 resolve();
@@ -68,7 +69,7 @@ function getLoggedUserData() {
             inputPass = $('#inputPassword').val();
 
         let hashPasword = CryptoJS.SHA1(inputPass).toString();
-        
+
         users.loginUser(email, hashPasword)
             .then(function(user) {
                 localStorage.setItem(USERNAME_STORAGE_KEY, user.name);
@@ -80,18 +81,18 @@ function getLoggedUserData() {
 }
 
 function attachRegisterEvent() {
-    $('#register-btn').on('click', function () {
+    $('#register-btn').on('click', function() {
         return new Promise((resolve, reject) => {
             let email = $('#register-form #inputEmail').val(),
                 pass = $('#register-form #inputPassword').val(),
                 firstname = $('#register-form #firstName').val(),
                 lastname = $('#register-form #lastName').val();
-            
-            
+
+
             if (!pass.length || pass.length < 8) {
                 throw new Error('password must have minimum 8 symbols!');
             }
-            
+
             let hashPasword = CryptoJS.SHA1(pass).toString();
             let user = userModule.createUser(firstname, lastname, hashPasword, email);
             users.registerUser(user)
@@ -110,7 +111,7 @@ function showLoggedUser(user) {
             html;
 
 
-        $.get('../templates/logged-user.handlebars', function (data) {
+        $.get('../templates/logged-user-template', function(data) {
             let template = Handlebars.compile(data);
             html = template(user);
             $container.html(html).css('display', 'block');
@@ -131,11 +132,11 @@ function showLoggin() {
 
 function attachLogoutEvent($element) {
     return new Promise((resolve, reject) => {
-        $element.on('click', '#logout-user', function () {
-        localStorage.removeItem(USERNAME_STORAGE_KEY);
-        localStorage.removeItem(AUTHKEY_STORAGE_KEY);
-        showLoggin();
-        resolve();
+        $element.on('click', '#logout-user', function() {
+            localStorage.removeItem(USERNAME_STORAGE_KEY);
+            localStorage.removeItem(AUTHKEY_STORAGE_KEY);
+            showLoggin();
+            resolve();
         });
     });
 }
