@@ -1,6 +1,6 @@
 /// <reference path="../typings/index.d.ts" />
 
-import { login } from './login-register.js';
+import { login } from './userController.js';
 import { compile } from '../utils/template.js';
 
 const router = new Navigo(null, false),
@@ -33,7 +33,10 @@ router
             });
     })
     .on('/add-car', () => {
-        console.log("Add car");
+        compile.compileTemplate('add-car')
+            .then((temp) => {
+                content.html(temp);
+            });
     })
     .resolve();
 

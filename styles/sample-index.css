@@ -126,3 +126,8 @@ header #logo-container {
     height: 0;
     visibility: hidden;
 }
+
+#content div.checkbox {
+    display: flex;
+    justify-content: space-between
+}

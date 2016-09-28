@@ -17,4 +17,4 @@
                 'app': '../scripts/app.js'
             }
 });
-        System.import('app');
+        System.import('main');
