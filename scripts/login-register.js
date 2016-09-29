@@ -85,9 +85,9 @@ function getLoggedUserData() {
 function attachRegisterEvent() {
     $('#register-btn').on('click', function() {
         return new Promise((resolve, reject) => {
-            if (!formValid.validate()) {
-                return;
-            }
+            //if (!formValid.validate()) {
+            //    return;
+            //}
 
             let email = $('#register-form #inputEmail').val(),
                 pass = $('#register-form #inputPassword').val(),
