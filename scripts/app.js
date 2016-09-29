@@ -47,7 +47,7 @@ router
     .on('/add-new-car', () => {
         carControler.createCar()
             .then(cars.addCar)
-            .then(console.log);
+            .catch(console.log);
     })
     .resolve();
 
