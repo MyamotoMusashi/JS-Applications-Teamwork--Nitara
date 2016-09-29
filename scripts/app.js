@@ -19,7 +19,7 @@ router
                 formContainer.html(temp);
             });
     })
-    .on('/loggin-user', () => {
+    .on('/logginng-user', () => {
         login.getLoggedUserData()
             .then(login.showLoggedUser)
             .then(() => {
@@ -39,10 +39,6 @@ router
             });
     })
     .resolve();
-
-$header.on('click', '#sign-in-btn', () => {
-    router.navigate('/loggin-user');
-});
 
 $header.on('click', '#logout-user', () => {
     login.logoutUser()
