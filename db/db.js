@@ -151,6 +151,21 @@ let cars = function() {
     }
 
     function addCar(car) {
+        return new Promise((resolve, reject) => {
+            carsData.create({
+                Brand: car.brand,
+                Model: car.model,
+                Year: car.year,
+                Seats: car.seats,
+                Fuel: car.fuel,
+                Image: car.img,
+                Extras: car.extras,
+                PricePerDay: car.pricePerDay,
+                IsHired: false
+            });
+
+            resolve('Successfully added car!');
+        });
     }
 
     function deepCopyCar(car) {
