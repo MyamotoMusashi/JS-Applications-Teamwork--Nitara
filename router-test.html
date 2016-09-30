@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link href="./styles/sample-index.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12">
+                <header id="header">
+                    <div id="logo-container">
+                        <img src="./imgs/header-logo.png" alt="logo" id="main-logo">
+                    </div>
+                    <div id="login-container" class="float-right">
+                        <div id="login-form">
+                            <a href="#/login" id="login" class="btn btn-login btn-primary">Login</a>
+                            <a href="#/register" id="register" class="btn btn-register btn-primary">Register</a>
+                            <div id="form-container">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="logged-user" class="float-right hidden"></div>
+                    <div class="clearfix"></div>
+                </header>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <nav id="main-nav">
+                <ul class="nav nav-pills" id="nav-ul">
+                    <li class="nav-menu-item align-center"><a href="#/home">Home</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item"><span class="color-white">Search</span><input type="text" class="nav-search">
+                    </li>
+                </ul>
+            </nav>
+            <hr>
+        </div>
+    </div>
+    <div id="content">
+    </div>
+
+    <script src="./bower_components/handlebars/handlebars.js"></script>
+    <script src="./bower_components/everlive/src/everlive.all.js"></script>
+    <script src="./node_modules/systemjs/dist/system.js"></script>
+    <script>
+        SystemJS.config({
+            'transpiler': 'plugin-babel',
+            'map': {
+                'plugin-babel': './node_modules/systemjs-plugin-babel/plugin-babel.js',
+                'systemjs-babel-build': './node_modules/systemjs-plugin-babel/systemjs-babel-browser.js',
+                'jquery': './bower_components/jquery/dist/jquery.js',
+                'template': './utils/template.js',
+                'user': './scripts/models/user.js',
+                'car': './scripts/models/car.js',
+                'userValidator': './scripts/models/userValidations.js',
+                'carValidator': './scripts/models/carValidator.js',
+                'db': './db/db.js',
+                'login-register': './scripts/login-register.js',
+                'cryptoJS': './bower_components/crypto-js/build/rollups/sha1.js',
+                'grid-plugin': './scripts/grid-plugin.js',
+                'app': './scripts/app.js'
+            }
+});
+        System.import('app');
+    </script>
+    <!--<script src="./scripts/config.js"></script>-->
+    <script src="./node_modules/navigo/lib/navigo.js"></script>
+    <!--<script src="./scripts/router.js"></script>-->
+</body>
+
+</html>

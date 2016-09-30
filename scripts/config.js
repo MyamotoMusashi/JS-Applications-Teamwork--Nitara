@@ -16,6 +16,7 @@
                 'login-register': '../scripts/login-register.js',
                 'cryptoJS': '../bower_components/crypto-js/build/rollups/sha1.js',
                 'grid-plugin': '../scripts/grid-plugin.js',
+                'app': '../scripts/app.js'
             }
 });
         System.import('main');

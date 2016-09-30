@@ -67,10 +67,8 @@ let users = (function() {
                 let isExist = false;
                 if (data.count) {
                     let usersArr = data.result;
-                    console.log(usersArr);
 
                     usersArr.forEach(function(user) {
-                        console.log(user);
                         if (userToAdd.email === user.Email) {
                             isExist = true;
                             return;
@@ -86,7 +84,8 @@ let users = (function() {
                         Lastname: userToAdd.lastname,
                         PasswordHash: userToAdd.password,
                         Email: userToAdd.email,
-                        Auth_Key: generateAuthKey(userToAdd.email)
+                        Auth_Key: generateAuthKey(userToAdd.email),
+                        AdminRules: false
                     });
                     resolve('Successfully registred user!');
                 }
@@ -106,7 +105,8 @@ let users = (function() {
                         if (user.Email === email && user.PasswordHash === password) {
                             userToLog = {
                                 name: `${user.Firstname} ${user.Lastname}`,
-                                authKey: user.Auth_Key
+                                authKey: user.Auth_Key,
+                                adminRules: user.AdminRules
                             };
                         }
                     });
@@ -151,6 +151,21 @@ let cars = function() {
     }
 
     function addCar(car) {
+        return new Promise((resolve, reject) => {
+            carsData.create({
+                Brand: car.brand,
+                Model: car.model,
+                Year: car.year,
+                Seats: car.seats,
+                Fuel: car.fuel,
+                Image: car.img,
+                Extras: car.extras,
+                PricePerDay: car.pricePerDay,
+                IsHired: false
+            });
+
+            resolve('Successfully added car!');
+        });
     }
 
     function deepCopyCar(car) {

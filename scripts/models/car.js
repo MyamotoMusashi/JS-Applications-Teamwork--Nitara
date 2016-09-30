@@ -1,11 +1,15 @@
+import { CarValidator } from './carValidator.js';
+
 let carModule = function () {
     class Car {
-        constructor(brand, model, fuel, pricePerDay, extras, img) {
+        constructor(brand, model, year, seats, fuel, img, extras, pricePerDay) {
             this.brand = brand;
             this.model = model;
+            this.year = year;
+            this.seats = seats;
             this.fuel = fuel;
             this.pricePerDay = pricePerDay;
-            this.extras = extras || [];
+            this.extras = extras || {};
             this.img = img;
             this.isHired = false;
         }
@@ -14,6 +18,8 @@ let carModule = function () {
             return this._brand;
         }
         set brand(value) {
+            CarValidator.CheckStringLength(value, 'Car brand param');
+            
             this._brand = value;
         }
 
@@ -21,6 +27,8 @@ let carModule = function () {
             return this._model;
         }
         set model(value) {
+            CarValidator.CheckStringLength(value, 'Car model param');
+            
             this._model = value;
         }
 
@@ -35,7 +43,18 @@ let carModule = function () {
             return this._pricePerDay;
         }
         set pricePerDay(value) {
+            CarValidator.CheckIfPositiveNumber(value, 'Car privePerDay param');
+
             this._pricePerDay = value;
+        }
+
+        get year() {
+            return this._year;
+        }
+        set year(value) {
+            CarValidator.CheckYear(value);
+
+            this._year = value;
         }
 
         get isHired() {
@@ -48,12 +67,6 @@ let carModule = function () {
 
             this._isHired = value;
         }
-        get gears() {
-            return this._gears;
-        }
-        set gears(value) {
-            this._gears = value;
-        }
 
         get seats() {
             return this._seats;
@@ -62,24 +75,19 @@ let carModule = function () {
             this._seats = value;
         }
 
-        get insurance() {
-            return this._insurance;
-        }
-        set insurance(value) {
-            this._insurance = value;
-        }
-
         get img() {
             return this._img;
         }
 
         set img(value) {
+            CarValidator.CheckStringLength(value, 'Car img param');
+            
             this._img = value;
         }
     }
 
-    function createCar(brand, model, fuel, pricePerDay, img) {
-        return new Car(brand, model, fuel, pricePerDay, img);
+    function createCar(brand, model, year, seats, fuel, img, extrasObj, pricePerDay) {
+        return new Car(brand, model, year, seats, fuel, img, extrasObj, pricePerDay);
     }
 
     return {
