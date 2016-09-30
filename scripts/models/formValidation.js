@@ -1,5 +1,8 @@
+import 'jquery';
+import 'jquery-validation';
+
 let formValid = (function () {
-    function validate() {
+    function check() {
         let isValid = false;
 
         $("#register-form").validate({
@@ -46,7 +49,7 @@ let formValid = (function () {
     }
 
     return {
-        validate
+        validate: check
     }
 })();
 
