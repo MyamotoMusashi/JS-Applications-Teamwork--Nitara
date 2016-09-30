@@ -2,7 +2,7 @@ import {cars} from '../db/db.js';
 
 var grid = (function () {
     function showGrid(pageNumber) {
-            let $gridContainer = $('#grid-container');
+            let $gridContainer = $('<div id="grid-container"></div>');
             let showedCarsInGrid = 12;
             pageNumber = pageNumber || 0;
 
@@ -12,10 +12,10 @@ var grid = (function () {
 
                         cars = cars.splice(showedCarsInGrid * pageNumber, showedCarsInGrid);
                         let template = Handlebars.compile(data);
-
+                        console.log(cars)
                         let html = template(cars);
                         $gridContainer.html(html);
-
+                        $('#content').append($gridContainer);
                         return carsLen / showedCarsInGrid;
                     })
                     .then((length) => {
@@ -31,6 +31,8 @@ var grid = (function () {
                             $('#page-navigator').html(html);
                         });
                     });
+                    
+                
     }
 
     $('#grid-container').on('click', '#btn-page', function() {

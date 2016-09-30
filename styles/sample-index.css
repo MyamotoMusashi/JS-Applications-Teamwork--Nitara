@@ -51,11 +51,10 @@ header #logo-container {
 }
 
 #nav-ul .nav-menu-item {
-    width: 15%;
+    width: 22%;
     margin: 2px;
     height: 35px;
     padding: 3px 5px;
-    background-color: #025AA5;
     border-radius: 5px;
 }
 
@@ -65,7 +64,8 @@ header #logo-container {
 
 .nav-menu-item a,
 .color-white {
-    color: white;
+    border: 1px solid #025AA5;
+    color: #025AA5;
 }
 
 .nav-search {
