@@ -1,161 +1,143 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Nitara Rent-a-Car</title>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!--<link href="./styles/sample-index.css" rel="stylesheet">-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />-->
-    <link href="./styles/sample-index.css" rel="stylesheet">
 </head>
 
 <body>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-xs-12">
+            <div class="col-md-12">
                 <header id="header">
-                    <div id="logo-container">
-                        <img src="./imgs/header-logo.png" alt="logo" id="main-logo">
-                    </div>
-                    <div id="login-container" class="float-right">
-                        <div id="login-form">
-                            <a href="#" id="login" class="btn btn-login btn-primary">Login</a>
-                            <a href="#" id="register" class="btn btn-register btn-primary hidden">Register</a>
-                            <div id="form-container">
-                            </div>
+                    <div class="col-md-6">
+                        <div id="logo-container">
+                            <img class="img-responsive" src="./imgs/header-logo.png" alt="logo" id="main-logo">
                         </div>
                     </div>
-                    <div id="logged-user" class="float-right hidden"></div>
-                    <div class="clearfix"></div>
+                    <div class="col-md-6">
+                        <div id="login-container" class="float-right">
+                            <div id="login-form">
+                                <a href="#" id="login" class="btn btn-login btn-primary">Login</a>
+                                <a href="#" id="register" class="btn btn-register btn-primary hidden">Register</a>
+                                <div id="form-container">
+                                </div>
+                            </div>
+                        </div>
+                        <div id="logged-user" class="float-right hidden"></div>
+                        <div class="clearfix"></div>
+                    </div>
                 </header>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <nav id="main-nav">
-                <ul class="nav nav-pills" id="nav-ul">
-                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                    <li class="nav-menu-item"><span class="color-white">Search</span><input type="text" class="nav-search">
-                    </li>
-                </ul>
-            </nav>
-            <hr>
+        <div class="row">
+            <div class="col-md-12">
+                <nav id="main-nav">
+                    <ul class="nav nav-tabs" id="nav-ul">
+                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                        <li class="nav-menu-item">
+                            <span class="color-white">Search</span><input type="text" class="nav-search">
+                        </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-12">
-            <main id="main">
-                <div class="row">
-                    <div class="col-xs-12">
-                        <div class="row">
-                            <div class="col-xs-6">
-                                <div class="row">
-                                    <div class="col-xs-12">
-                                        <section id="section">
-                                            <div class="row">
-                                                <div class="col-xs-12">
-                                                    <form>
-                                                        <div class="row">
-                                                            <div class="col-xs-12">
-                                                                <label for="pickUpPlace">Enter PickUp Place:</label>
-                                                            </div>
-                                                            <div class="col-xs-12">
-                                                                <input type="text" name="" value="" id="pickUpPlace" placeholder="PickUp Place">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xs-12">
-                                                                <label for="deliveryPlace">Enter Delivery Place:</label>
-                                                            </div>
-                                                            <div class="col-xs-12">
-                                                                <input type="text" name="" value="" id="deliveryPlace" placeholder="Delivery Place">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xs-12">
-                                                                <label for="startRentDate">Start Date</label>
-                                                            </div>
-                                                            <div class="col-xs-12">
-                                                                <input type="text" name="" value="" id="startRentDate" placeholder="Start Date">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xs-12">
-                                                                <label for="endRentDate">End Date</label>
-                                                            </div>
-                                                            <div class="col-xs-12">
-                                                                <input type="text" name="" value="" id="endRentDate" placeholder="End Date">
-                                                            </div>
-                                                        </div>
-                                                        <div class="row">
-                                                            <div class="col-xs-12">
-                                                                <button id="findRentalButton" class="btn btn-block btn-primary">Find Available Rentals</button>
-                                                            </div>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                            </div>
-                                        </section>
+        <div class="row">
+            <div class="col-md-12">
+                <main id="main">
+                    <div class="row">
+                        <div class="col-md-2 col-md-offset-5 bg-info well">
+                            <section id="section">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="pickUpPlace">Enter PickUp Place:</label>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name="" value="" id="pickUpPlace" placeholder="PickUp Place">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="deliveryPlace">Enter Delivery Place:</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name="" value="" id="deliveryPlace" placeholder="Delivery Place">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="startRentDate">Start Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name="" value="" id="startRentDate" placeholder="Start Date">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <label for="endRentDate">End Date</label>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <input type="text" name="" value="" id="endRentDate" placeholder="End Date">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <button id="findRentalButton" class="btn btn-block btn-primary">Find Available Rentals</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </section>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <ul class="nav nav-pills">
+                                    <li><a class="btn btn-default" href="#">Order by:</a></li>
+                                    <li><a class="btn btn-default" href="#">Search by:</a></li>
+                                    <li><a class="btn btn-default" href="#">Ascending</a></li>
+                                    <li class="nav-menu-item"><span class="color-white">Search</span><input type="text" class="nav-search"></li>
+                                </ul>
                             </div>
-                            <div class="col-xs-6">
-                                <div class="row">
-                                    <div class="col-xs-6 box1">
-                                        <div class="row">
-                                            <div class="col-xs-9 box2">
-                                                <img class="img-responsive img-thumbnail" src="imgs/cars/Volk.jpg" alt="random image">
-                                            </div>
-                                            <div class="col-xs-3 box3">
-                                                <div class="row">
-                                                    <div class="col-xs-6">
-                                                        <p>price</p>
-                                                        <p>fuel</p>
-                                                        <p>extra</p>
-                                                        <p>number of seats</p>
-                                                        <p>insurances: yes</p>
-                                                    </div>
-                                                    <div class="col-xs-6">
-                                                        <p>yes</p>
-                                                        <p>no</p>
-                                                        <p>yes</p>
-                                                        <p>no</p>
-                                                        <p>yes</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-xs-6">
-                                                <button class="btn btn-primary">Rent</button>
-                                            </div>
-                                            <div class="col-xs-6">
-                                                <button class="btn btn-info">Details</button>
-                                            </div>
-                                        </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <button id="show-available-cars">Lala</button>
+                                    <div id="grid-container">
+
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </main>
+                </main>
+            </div>
+        </div>
+        <div class="row">
+            <footer id="footer"></footer>
         </div>
     </div>
-    <div class="row">
-        <footer id="footer">
-        </footer>
-    </div>
+    <!--<script src="./bower_components/bootstrap/dist/js"></script>-->
     <script src="./bower_components/handlebars/handlebars.js"></script>
     <script src="./bower_components/everlive/src/everlive.all.js"></script>
     <script src="./node_modules/systemjs/dist/system.js"></script>
     <script src="./scripts/config.js"></script>
-    </div>
 </body>
 
 </html>
