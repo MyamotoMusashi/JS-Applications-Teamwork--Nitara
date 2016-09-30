@@ -3,7 +3,7 @@ import {cars} from '../db/db.js';
 var grid = (function () {
     function showGrid(pageNumber) {
             let $gridContainer = $('#grid-container');
-            let showedCarsInGrid = 2;
+            let showedCarsInGrid = 12;
             pageNumber = pageNumber || 0;
 
             Promise.all([cars.getAllFreeCars(), $.get('../templates/cars-gallery.handlebars')])

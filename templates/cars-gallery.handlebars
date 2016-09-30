@@ -1,50 +1,46 @@
-<div class="container-fluid">
+<div class="col-md-12">
     <div class="row">
-        {{#each this}}
-            <div class="col-xl-6">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xl-12">
-                            <h3>{{Brand}} : {{Model}}</h3>
+        <div class="row">
+            {{#each this}}
+            <div class="col-md-4 box1">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 well">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>{{Brand}} {{Model}}</h4>
+                            </div>
                         </div>
-                    </div> 
-                    <div class="row">
-                        <div class="col-xl-7">
-                            <img class="img-responive" src="{{Image}}" alt="">
-                        </div>
-                        <div class="col-xl-5">
-                            <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
                                 <div class="row">
-                                    <div class="col-xl-5">брой места: </div>
-                                    <div class="col-xl-7">{{Seats}}</div>
+                                    <div class="col-md-12">
+                                        <img src="{{Image}}" class="img-responsive img-thumbnail">
+                                    </div>
                                 </div>
                                 <div class="row">
-                                    <div class="col-xl-5">гориво: </div>
-                                    <div class="col-xl-7">{{Fuel}}</div>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-danger"><span class="small">Rent 30$/day</span></button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-info"><span class="small">Details</span></button>
+                                    </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-xl-5">скорости: </div>
-                                    <div class="col-xl-7">{{gear}}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-5">разход: </div>
-                                    <div class="col-xl-7">{{fuelConsumption}}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-5">екстри: </div>
-                                    <div class="col-xl-7">{{extras}}</div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-xl-5">застраховки: </div>
-                                    <div class="col-xl-7">{{insurance}}</div>
-                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p>брой места: {{Seats}}</p>
+                                <p>гориво: {{Fuel}} </p>
+                                <p>скорости: {{gear}}</p>
+                                <p>разход: {{fuelConsumption}}</p>
+                                <p>екстри: {{extras}}</p>
+                                <p>застраховки: {{insurance}}</p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        {{/each}}
+            {{/each}}
+        </div>
+        <ul id="page-navigator" class="pagination">
+        </ul>
     </div>
-    <div id="page-navigator">
-    </div>
-</div>
+
