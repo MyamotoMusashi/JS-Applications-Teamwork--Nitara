@@ -18,6 +18,7 @@
   "homepage": "https://github.com/MyamotoMusashi/JS-Applications-Teamwork--Nitara#readme",
   "dependencies": {
     "navigo": "^3.0.0",
+    "sinon": "^1.17.6",
     "systemjs": "^0.19.38",
     "systemjs-plugin-babel": "0.0.15"
   }

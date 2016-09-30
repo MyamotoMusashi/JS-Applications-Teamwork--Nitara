@@ -4,6 +4,7 @@ import { login } from './controllers/userController.js';
 import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
 import { cars } from '../db/db.js';
+import { grid } from './grid-plugin.js';
 
 window.onload = function () {
     window.location = '#/home';
@@ -48,6 +49,11 @@ router
         carControler.createCar()
             .then(cars.addCar)
             .catch(console.log);
+    })
+    .on('/cars-gallery', () => {
+        grid.showGrid();
+        
+        $('#grid-btn').html('Hide gallery');
     })
     .resolve();
 

@@ -19,7 +19,7 @@
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <button class="btn btn-danger"><span class="small">Rent 30$/day</span></button>
+                                        <button class="btn btn-danger"><span class="small">Rent {{PricePerDay}}$/day</span></button>
                                     </div>
                                     <div class="col-md-6">
                                         <button class="btn btn-info"><span class="small">Details</span></button>
@@ -27,12 +27,18 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <p>брой места: {{Seats}}</p>
-                                <p>гориво: {{Fuel}} </p>
-                                <p>скорости: {{gear}}</p>
-                                <p>разход: {{fuelConsumption}}</p>
-                                <p>екстри: {{extras}}</p>
-                                <p>застраховки: {{insurance}}</p>
+                                <p>Year: {{Year}}</p>
+                                <p>Seats: {{Seats}}</p>
+                                <p>Fuel: {{Fuel}} </p>
+                                <p>Gears: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
+                                <p>Fuel consumation: {{Extras.fuelConsumation}}</p>
+                                <p>Insuarance: {{#if Extras.insuarance}}Yes{{else}}No{{/if}}</p>
+                                <div class="car-details hidden">
+                                    <p>Air condition: {{#if Extras.clima}}Yes{{else}}No{{/if}}</p>
+                                    <p>GPS: {{#if Extras.gps}}Yes{{else}}No{{/if}}</p>
+                                    <p>Leather: {{#if Extras.leather}}Yes{{else}}No{{/if}}</p>
+                                    <p>4x4: {{#if Extras.quatro}}Yes{{else}}No{{/if}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
