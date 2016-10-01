@@ -4,7 +4,7 @@ import { login } from './controllers/userController.js';
 import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
 import { cars } from '../db/db.js';
-import { grid } from './grid-plugin.js';
+import { grid } from './test.js';
 
 window.onload = function () {
     window.location = '#/home';
@@ -51,9 +51,11 @@ router
             .catch(console.log);
     })
     .on('/cars-gallery', () => {
-        grid.showGrid();
-        content.html('');
-        $('#grid-btn').html('Hide gallery');
+        grid.createGridContainer()
+        .then(grid.showGrid)
+        .then(() => {
+            $('#grid-btn').html('Hide gallery');
+        });
     })
     .resolve();
 
@@ -62,4 +64,11 @@ $header.on('click', '#logout-user', () => {
         .then(() => {
             router.navigate('/home');
         });
+});
+
+
+
+content.on('click', '#btn-page', function () {
+    let pageIndex = $(this).attr('data-index') - 1;
+    showGrid(pageIndex);
 });
