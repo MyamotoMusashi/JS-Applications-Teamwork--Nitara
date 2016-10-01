@@ -19,6 +19,13 @@ router
     .on('/home', () => {
         formContainer.html('');
         content.html('');
+
+        $('#grid-btn').html('View free cars');
+
+        compile.compileTemplate('order')
+            .then((temp) => {
+                content.html(temp);
+            });
     })
     .on('/login', () => {
         compile.compileTemplate('login')
@@ -54,6 +61,13 @@ router
         grid.showGrid();
 
         $('#grid-btn').html('Hide gallery');
+    })
+    .on('/add-new-order', () => {
+        $('#succes-submit').removeClass('hidden');
+
+        setTimeout(function() {
+            router.navigate('/home');
+        }, 1500);
     })
     .resolve();
 
