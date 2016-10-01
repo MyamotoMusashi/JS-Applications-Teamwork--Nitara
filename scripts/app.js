@@ -6,9 +6,9 @@ import { compile } from '../utils/template.js';
 import { cars } from '../db/db.js';
 import { grid } from './grid-plugin.js';
 
-window.onload = function () {
+window.onload = function() {
     window.location = '#/home';
-} ();
+}();
 
 const router = new Navigo(null, false),
     content = $('#content'),
@@ -52,7 +52,7 @@ router
     })
     .on('/cars-gallery', () => {
         grid.showGrid();
-        
+
         $('#grid-btn').html('Hide gallery');
     })
     .resolve();

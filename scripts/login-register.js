@@ -3,7 +3,7 @@ import 'cryptoJS';
 //import 'jquery-validation';
 import { userModule } from 'user';
 import { users } from 'db';
-import {formValid} from 'formValidation';
+import { formValid } from 'formValidation';
 
 const USERNAME_STORAGE_KEY = 'username-key';
 const AUTHKEY_STORAGE_KEY = 'authkey-key';
@@ -86,7 +86,7 @@ function attachRegisterEvent() {
     $('#register-btn').on('click', function() {
         return new Promise((resolve, reject) => {
             if (!formValid.validate()) {
-               return;
+                return;
             }
 
             let email = $('#register-form #inputEmail').val(),
@@ -121,6 +121,7 @@ function showLoggedUser(user) {
             let template = Handlebars.compile(data);
             html = template(user);
             $container.html(html).css('display', 'block');
+            $container.removeClass('hidden');
         });
 
         $loginContainer.css('display', 'none');

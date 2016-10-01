@@ -7,7 +7,7 @@ const USERNAME_STORAGE_KEY = 'username-key';
 const AUTHKEY_STORAGE_KEY = 'authkey-key';
 
 let login = (function() {
-    
+
     function getLoggedUserData() {
         return new Promise((resolve, reject) => {
             let email = $('#inputEmail').val(),
@@ -16,7 +16,7 @@ let login = (function() {
             let hashPasword = CryptoJS.SHA1(inputPass).toString();
 
             users.loginUser(email, hashPasword)
-                .then(function (user) {
+                .then(function(user) {
                     localStorage.setItem(USERNAME_STORAGE_KEY, user.name);
                     localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
                     resolve(user);
@@ -32,10 +32,11 @@ let login = (function() {
                 html;
 
 
-            $.get('../templates/logged-user.handlebars', function (data) {
+            $.get('../templates/logged-user.handlebars', function(data) {
                 let template = Handlebars.compile(data);
                 html = template(user);
                 $container.html(html).css('display', 'block');
+                $container.removeClass('hidden');
             });
 
             $loginContainer.css('display', 'none');
@@ -53,10 +54,10 @@ let login = (function() {
 
     function logoutUser($element) {
         return new Promise((resolve, reject) => {
-                localStorage.removeItem(USERNAME_STORAGE_KEY);
-                localStorage.removeItem(AUTHKEY_STORAGE_KEY);
-                showLoggin();
-                resolve();
+            localStorage.removeItem(USERNAME_STORAGE_KEY);
+            localStorage.removeItem(AUTHKEY_STORAGE_KEY);
+            showLoggin();
+            resolve();
         });
     }
 
