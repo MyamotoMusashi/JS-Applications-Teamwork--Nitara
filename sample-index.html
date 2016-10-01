@@ -11,135 +11,139 @@
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />-->
 </head>
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <header id="header">
-                    <div class="col-md-6">
-                        <div id="logo-container">
-                            <img class="img-responsive" src="./imgs/header-logo.png" alt="logo" id="main-logo">
-                        </div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <header id="header">
+                <div class="col-md-6">
+                    <div id="logo-container">
+                        <img class="img-responsive" src="./imgs/header-logo.png" alt="logo" id="main-logo">
                     </div>
-                    <div class="col-md-6">
-                        <div id="login-container" class="float-right">
-                            <div id="login-form">
-                                <a href="#" id="login" class="btn btn-login btn-primary">Login</a>
-                                <a href="#" id="register" class="btn btn-register btn-primary hidden">Register</a>
-                                <div id="form-container">
-                                </div>
+                </div>
+                <div class="col-md-6">
+                    <div id="login-container" class="float-right">
+                        <div id="login-form">
+                            <a href="#" id="login" class="btn btn-login btn-primary">Login</a>
+                            <a href="#" id="register" class="btn btn-register btn-primary hidden">Register</a>
+                            <div id="form-container">
                             </div>
                         </div>
-                        <div id="logged-user" class="float-right hidden"></div>
-                        <div class="clearfix"></div>
                     </div>
-                </header>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <nav id="main-nav">
-                    <ul class="nav nav-tabs" id="nav-ul">
-                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                        <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
-                        <li class="nav-menu-item">
-                            <span class="color-white">Search</span><input type="text" class="nav-search">
-                        </li>
-                    </ul>
-                </nav>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <main id="main">
-                    <div class="row">
-                        <div class="col-md-2 col-md-offset-5 bg-info well">
-                            <section id="section">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="pickUpPlace">Enter PickUp Place:</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <select class="form-control" id="sel1">
-                                                <option>Sofia</option>
-                                                <option>Plovdiv</option>
-                                                <option>Varna</option>
-                                                <option>Burgas</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="deliveryPlace">Enter Delivery Place:</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <select class="form-control" id="sel1">
-                                                <option>Sofia</option>
-                                                <option>Plovidv</option>
-                                                <option>Varna</option>
-                                                <option>Burgas</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="startRentDate">Start Date</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="date" name="" value="" id="startRentDate" placeholder="Start Date" style="color:gray">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="endRentDate">End Date</label>
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <input type="date" name="" value="" id="endRentDate" placeholder="End Date" style="color:gray">
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <button id="show-available-cars" class="btn btn-block btn-success">Find Available Rentals</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </section>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="row">
-                                <ul class="nav nav-pills" id="grid-pagination">
-                                </ul>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div id="grid-container">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </main>
-            </div>
-        </div>
-        <div class="row">
-            <footer id="footer"></footer>
+                    <div id="logged-user" class="float-right hidden"></div>
+                    <div class="clearfix"></div>
+                </div>
+            </header>
         </div>
     </div>
-    <script src="./bower_components/handlebars/handlebars.js"></script>
-    <script src="./bower_components/everlive/src/everlive.all.js"></script>
-    <script src="./node_modules/systemjs/dist/system.js"></script>
-    <script src="./scripts/config.js"></script>
+    <div class="row">
+        <div class="col-md-12">
+            <nav id="main-nav">
+                <ul class="nav nav-tabs" id="nav-ul">
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item align-center"><a href="#">Menu item</a></li>
+                    <li class="nav-menu-item">
+                        <span class="color-white">Search</span><input type="text" class="nav-search">
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <main id="main">
+                <div class="row">
+                    <div class="col-md-2 col-md-offset-5 bg-info well">
+                        <section id="section">
+                            <form>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="pickUpPlace">Enter PickUp Place:</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="form-control" id="sel1">
+                                            <option>Sofia</option>
+                                            <option>Plovdiv</option>
+                                            <option>Varna</option>
+                                            <option>Burgas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="deliveryPlace">Enter Delivery Place:</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <select class="form-control" id="sel1">
+                                            <option>Sofia</option>
+                                            <option>Plovidv</option>
+                                            <option>Varna</option>
+                                            <option>Burgas</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="startRentDate">Start Date</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="date" name="" value="" id="startRentDate" placeholder="Start Date"
+                                               style="color:gray">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <label for="endRentDate">End Date</label>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <input type="date" name="" value="" id="endRentDate" placeholder="End Date"
+                                               style="color:gray">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <button id="show-available-cars" class="btn btn-block btn-success">Find
+                                            Available Rentals
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </section>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <ul class="nav nav-pills" id="grid-pagination">
+                            </ul>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div id="grid-container">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </main>
+        </div>
+    </div>
+    <div class="row">
+        <footer id="footer"></footer>
+    </div>
+</div>
+<script src="./bower_components/handlebars/handlebars.js"></script>
+<script src="./bower_components/everlive/src/everlive.all.js"></script>
+<script src="./node_modules/systemjs/dist/system.js"></script>
+<script src="./scripts/config.js"></script>
 </body>
 </html>
