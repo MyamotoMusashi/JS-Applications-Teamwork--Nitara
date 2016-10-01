@@ -52,7 +52,7 @@ router
     })
     .on('/cars-gallery', () => {
         grid.showGrid();
-        
+        content.html('');
         $('#grid-btn').html('Hide gallery');
     })
     .resolve();

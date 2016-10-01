@@ -31,11 +31,10 @@ let login = (function() {
                 $loginContainer = $('#login-container'),
                 html;
 
-
             $.get('../templates/logged-user.handlebars', function (data) {
                 let template = Handlebars.compile(data);
                 html = template(user);
-                $container.html(html).css('display', 'block');
+                $container.html(html).removeClass('hidden');
             });
 
             $loginContainer.css('display', 'none');
