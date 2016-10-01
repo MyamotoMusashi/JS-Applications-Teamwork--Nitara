@@ -50,7 +50,10 @@ router
     .on('/add-new-car', () => {
         carControler.createCar()
             .then(cars.addCar)
-            .catch(console.log);
+            .catch(console.log)
+            .then(() => {
+                router.navigate('/home');
+            });
     })
     .on('/cars-gallery', () => {
             grid.createGridContainer()

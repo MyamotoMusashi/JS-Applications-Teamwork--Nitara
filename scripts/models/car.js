@@ -2,9 +2,10 @@ import { CarValidator } from './carValidator.js';
 
 let carModule = function () {
     class Car {
-        constructor(brand, model, year, seats, fuel, img, extras, pricePerDay) {
+        constructor(brand, model, location, year, seats, fuel, img, extras, pricePerDay) {
             this.brand = brand;
             this.model = model;
+            this.location = location;
             this.year = year;
             this.seats = seats;
             this.fuel = fuel;
@@ -32,6 +33,15 @@ let carModule = function () {
             this._model = value;
         }
 
+        get location() {
+            return this._location;
+        }
+        set location(value) {
+            CarValidator.ValidateLocation(value);
+
+            this._location = value;
+        }
+
         get fuel() {
             return this._fuel;
         }
@@ -43,7 +53,7 @@ let carModule = function () {
             return this._pricePerDay;
         }
         set pricePerDay(value) {
-            CarValidator.CheckIfPositiveNumber(value, 'Car privePerDay param');
+            CarValidator.CheckIfPositiveNumber(value, 'Car pricePerDay param');
 
             this._pricePerDay = value;
         }
@@ -86,8 +96,8 @@ let carModule = function () {
         }
     }
 
-    function createCar(brand, model, year, seats, fuel, img, extrasObj, pricePerDay) {
-        return new Car(brand, model, year, seats, fuel, img, extrasObj, pricePerDay);
+    function createCar(brand, model, location, year, seats, fuel, img, extrasObj, pricePerDay) {
+        return new Car(brand, model, location, year, seats, fuel, img, extrasObj, pricePerDay);
     }
 
     return {

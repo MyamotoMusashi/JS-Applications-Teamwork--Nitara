@@ -27,10 +27,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
+                                <p>Location:  {{Location}}</p>
                                 <p>Seats: {{Seats}}</p>
                                 <p>Fuel: {{Fuel}} </p>
                                 <p>Gears: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
-                                <p>Fuel Consumation: {{Extras.fuelConsumation}}</p>
+                                <p>Fuel Consumation: {{Extras.FuelConsumation}}</p>
                             </div>
                         </div>
                     </div>
@@ -47,16 +48,17 @@
                         </div>
                         <div class="modal-body">
                             <img src="{{Image}}" class="img-responsive img-thumbnail" />
+                            <p>Location:  {{Location}}</p>
                             <p>Year Of Manufacturing:  {{Year}}</p>
                             <p>Seats: {{Seats}}</p>
                             <p>Fuel: {{Fuel}} </p>
                             <p>Gears: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
-                            <p>Fuel Consumation: {{Extras.fuelConsumation}}</p>
-                            <p>Insuarance: {{#if Extras.insuarance}}Yes{{else}}No{{/if}}</p>
-                            <p>Air Condition: {{#if Extras.clima}}Yes{{else}}No{{/if}}</p>
-                            <p>GPS: {{#if Extras.gps}}Yes{{else}}No{{/if}}</p>
-                            <p>Leather: {{#if Extras.leather}}Yes{{else}}No{{/if}}</p>
-                            <p>4x4: {{#if Extras.quatro}}Yes{{else}}No{{/if}}</p>
+                            <p>Fuel Consumation: {{Extras.FuelConsumation}}</p>
+                            <p>Insuarance: {{#if Extras.Insuarance}}Yes{{else}}No{{/if}}</p>
+                            <p>Air Condition: {{#if Extras.Clima}}Yes{{else}}No{{/if}}</p>
+                            <p>GPS: {{#if Extras.Gps}}Yes{{else}}No{{/if}}</p>
+                            <p>Leather: {{#if Extras.Leather}}Yes{{else}}No{{/if}}</p>
+                            <p>4x4: {{#if Extras.Quatro}}Yes{{else}}No{{/if}}</p>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

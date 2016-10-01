@@ -38,6 +38,24 @@ class CarValidator {
         }
         
     }
+
+    static ValidateLocation(value) {
+        let paramName = 'Car location param',
+            towns = ['Sofia', 'Plovdiv', 'Varna', 'Burgas'];
+
+        this.CheckIfUndefined(value, paramName);
+        let isCorrect = false;
+        for (let i = 0, len = towns.length; i < len; i += 1) {
+            if (value === towns[i]) {
+                isCorrect = true;
+                break;
+            }
+        }
+        
+        if(!isCorrect) {
+            throw new Error(`${paramName} must be one of the following towns ${towns.join(', ')}`);
+        }
+    }
 }
 
 export { CarValidator };
