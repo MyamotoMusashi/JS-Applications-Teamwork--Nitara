@@ -34,7 +34,7 @@ let login = (function() {
             $.get('../templates/logged-user.handlebars', function (data) {
                 let template = Handlebars.compile(data);
                 html = template(user);
-                $container.html(html).removeClass('hidden');
+                $container.html(html).removeClass('hidden').css('display', 'block');
             });
 
             $loginContainer.css('display', 'none');

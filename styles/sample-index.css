@@ -131,3 +131,7 @@ header #logo-container {
     display: flex;
     justify-content: space-between
 }
+div.checkbox.form-control label input[type=checkbox] {
+    margin: 0;
+    position: unset;
+}
