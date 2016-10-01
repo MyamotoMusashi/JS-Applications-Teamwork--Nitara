@@ -53,14 +53,13 @@ router
             .catch(console.log);
     })
     .on('/cars-gallery', () => {
-        
             grid.createGridContainer()
                 .then(grid.showGrid)
-                .then(() => {
-            $('#grid-btn').html('Hide gallery');
+    })
+    .on('/quick-rent', () => {
+        $.get('../templates/quick-rental-form.handlebars', (html) => {
+            content.html(html);
         });
-        
-        
     })
     .resolve();
 
@@ -72,11 +71,14 @@ $header.on('click', '#logout-user', () => {
 });
 
 content.on('click', '#hide-grid', () => {
-        $('#grid-btn').html('View free cars');
         router.navigate('/home');
 });
 
 content.on('click', '#btn-page', function () {
     let pageIndex = $(this).attr('data-index') - 1;
     showGrid(pageIndex);
+});
+
+content.on('click', '#show-available-cars', function () {
+    router.navigate('/cars-gallery');
 });
