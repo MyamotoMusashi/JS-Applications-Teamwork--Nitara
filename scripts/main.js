@@ -16,3 +16,9 @@ $('#show-available-cars').on('click', function() {
     }
     
 });
+
+
+$(document).ready(function() {
+    grid.showGrid();
+    isGridShowed = true;
+});
