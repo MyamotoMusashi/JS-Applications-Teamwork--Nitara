@@ -135,3 +135,7 @@ div.checkbox.form-control label input[type=checkbox] {
     margin: 0;
     position: unset;
 }
+img.car-details-icon {
+    width: 20px;
+    height: 20px;
+}

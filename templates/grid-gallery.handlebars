@@ -27,11 +27,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <p>Location:  {{Location}}</p>
-                                <p>Seats: {{Seats}}</p>
-                                <p>Fuel: {{Fuel}} </p>
-                                <p>Gears: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
-                                <p>Fuel Consumation: {{Extras.FuelConsumation}}</p>
+                                <p><img src="../imgs/car-details/location.png" class="car-details-icon" title="Location">:  {{Location}}</p>
+                                <p><img src="../imgs/car-details/seats.jpg" class="car-details-icon" title="Seats">: {{Seats}}</p>
+                                <p><img src="../imgs/car-details/fuel.jpg" class="car-details-icon" title="Fuel type">: {{Fuel}} </p>
+                                <p><img src="../imgs/car-details/gears.jpg" class="car-details-icon" title="Gears type">: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
+                                <p><img src="../imgs/car-details/fuel-consumation.png" class="car-details-icon" title="Fuel consumation per 100 km.">: {{Extras.FuelConsumation}} / 100</p>
                             </div>
                         </div>
                     </div>
@@ -48,16 +48,16 @@
                         </div>
                         <div class="modal-body">
                             <img src="{{Image}}" class="img-responsive img-thumbnail" />
-                            <p>Location:  {{Location}}</p>
                             <p>Year Of Manufacturing:  {{Year}}</p>
-                            <p>Seats: {{Seats}}</p>
-                            <p>Fuel: {{Fuel}} </p>
-                            <p>Gears: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
-                            <p>Fuel Consumation: {{Extras.FuelConsumation}}</p>
                             <p>Insuarance: {{#if Extras.Insuarance}}Yes{{else}}No{{/if}}</p>
-                            <p>Air Condition: {{#if Extras.Clima}}Yes{{else}}No{{/if}}</p>
-                            <p>GPS: {{#if Extras.Gps}}Yes{{else}}No{{/if}}</p>
-                            <p>Leather: {{#if Extras.Leather}}Yes{{else}}No{{/if}}</p>
+                            <p><img src="../imgs/car-details/location.png" class="car-details-icon" title="Location">:  {{Location}}</p>
+                            <p><img src="../imgs/car-details/seats.jpg" class="car-details-icon" title="Seats">: {{Seats}}</p>
+                            <p><img src="../imgs/car-details/fuel.jpg" class="car-details-icon" title="Fuel type">: {{Fuel}} </p>
+                            <p><img src="../imgs/car-details/gears.jpg" class="car-details-icon" title="Gears type">: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
+                            <p><img src="../imgs/car-details/fuel-consumation.png" class="car-details-icon" title="Fuel consumation per 100 km.">: {{Extras.FuelConsumation}} / 100</p>
+                            <p><img src="../imgs/car-details/air-conditioning.png" class="car-details-icon" title="Air-conditioning">: {{#if Extras.Clima}}Yes{{else}}No{{/if}}</p>
+                            <p><img src="../imgs/car-details/gps.png" class="car-details-icon" title="GPS navigation">: {{#if Extras.Gps}}Yes{{else}}No{{/if}}</p>
+                            <p><img src="../imgs/car-details/leather.png" class="car-details-icon" title="Leather seats">: {{#if Extras.Leather}}Yes{{else}}No{{/if}}</p>
                             <p>4x4: {{#if Extras.Quatro}}Yes{{else}}No{{/if}}</p>
                         </div>
                         <div class="modal-footer">
