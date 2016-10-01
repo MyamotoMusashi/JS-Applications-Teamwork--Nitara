@@ -22,7 +22,7 @@
                                         <button class="btn btn-primary"><span class="small">Rent {{PricePerDay}}$/day</span></button>
                                     </div>
                                     <div class="col-md-6">
-                                        <button class="btn btn-info" data-toggle="modal" data-target="#modal-{{Id}}"><span class="small">Details</span></button>
+                                        <button class="btn btn-info" data-toggle="modal" data-target="#modal-{{@index}}"><span class="small">Details</span></button>
                                     </div>
                                 </div>
                             </div>
@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </div>
-            <div id="modal-{{Id}}" class="modal fade" role="dialog">
+            <div id="modal-{{@index}}" class="modal fade" role="dialog">
                 <div class="modal-dialog">
 
                     <!-- Modal content-->
