@@ -1,15 +1,15 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>Nitara Rent-a-Car</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
     <!--<link href="./styles/sample-index.css" rel="stylesheet">-->
     <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" />-->
 </head>
-
 <body>
     <div class="container-fluid">
         <div class="row">
@@ -65,7 +65,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="" value="" id="pickUpPlace" placeholder="PickUp Place">
+                                            <select class="form-control" id="sel1">
+                                                <option>Sofia</option>
+                                                <option>Plovdiv</option>
+                                                <option>Varna</option>
+                                                <option>Burgas</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -75,7 +80,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="" value="" id="deliveryPlace" placeholder="Delivery Place">
+                                            <select class="form-control" id="sel1">
+                                                <option>Sofia</option>
+                                                <option>Plovidv</option>
+                                                <option>Varna</option>
+                                                <option>Burgas</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row">
@@ -85,7 +95,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="" value="" id="startRentDate" placeholder="Start Date">
+                                            <input type="date" name="" value="" id="startRentDate" placeholder="Start Date" style="color:gray">
                                         </div>
                                     </div>
                                     <div class="row">
@@ -95,12 +105,12 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <input type="text" name="" value="" id="endRentDate" placeholder="End Date">
+                                            <input type="date" name="" value="" id="endRentDate" placeholder="End Date" style="color:gray">
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <button id="findRentalButton" class="btn btn-block btn-primary">Find Available Rentals</button>
+                                            <button id="show-available-cars" class="btn btn-block btn-success">Find Available Rentals</button>
                                         </div>
                                     </div>
                                 </form>
@@ -110,18 +120,12 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="row">
-                                <ul class="nav nav-pills">
-                                    <li><a class="btn btn-default" href="#">Order by:</a></li>
-                                    <li><a class="btn btn-default" href="#">Search by:</a></li>
-                                    <li><a class="btn btn-default" href="#">Ascending</a></li>
-                                    <li class="nav-menu-item"><span class="color-white">Search</span><input type="text" class="nav-search"></li>
+                                <ul class="nav nav-pills" id="grid-pagination">
                                 </ul>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
-                                    <button id="show-available-cars">Lala</button>
                                     <div id="grid-container">
-
                                     </div>
                                 </div>
                             </div>
@@ -133,11 +137,9 @@
             <footer id="footer"></footer>
         </div>
     </div>
-    <!--<script src="./bower_components/bootstrap/dist/js"></script>-->
     <script src="./bower_components/handlebars/handlebars.js"></script>
     <script src="./bower_components/everlive/src/everlive.all.js"></script>
     <script src="./node_modules/systemjs/dist/system.js"></script>
     <script src="./scripts/config.js"></script>
 </body>
-
 </html>
