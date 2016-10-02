@@ -78,6 +78,11 @@ router
             router.navigate('/home');
         }, 1500);
     })
+    .on('/sortBy/:sortingType', (param) => {
+        console.log(param);
+        let pageIndex = $('#grid-container').attr('data-index') - 1;
+        grid.showGrid(pageIndex, param.sortingType);
+    })
     .resolve();
 
 $header.on('click', '#logout-user', () => {
