@@ -60,6 +60,7 @@ let login = (function() {
         });
     }
 
+
     return {
         getLoggedUserData,
         showLoggedUser,
@@ -67,4 +68,33 @@ let login = (function() {
     };
 }());
 
-export { login };
+let register = (function() {
+
+    function registerUser() {
+            let obj = getRegistrationData();
+
+            let hashPasword = CryptoJS.SHA1(obj.pass).toString();
+            let user = userModule.createUser(
+                            obj.firstname,
+                            obj.lastname,
+                            hashPasword,
+                            obj.email);
+
+            return users.registerUser(user);
+    }
+
+    function getRegistrationData() {
+        return {
+            email: $('#register-form #inputEmail').val(),
+            pass: $('#register-form #inputPassword').val(),
+            firstname: $('#register-form #firstName').val(),
+            lastname: $('#register-form #lastName').val()
+        };
+    }
+
+    return {
+        registerUser
+    };
+}());
+
+export { login, register };

@@ -1,6 +1,7 @@
 /// <reference path="../typings/index.d.ts" />
 
-import { login } from './controllers/userController.js';
+import { formValid } from './models/formValidation.js';
+import { login, register } from './controllers/userController.js';
 import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
 import { cars } from '../db/db.js';
@@ -52,6 +53,14 @@ router
                 formContainer.html(temp);
             });
     })
+    .on('/registration', () => {
+        register.registerUser()
+            .then(() => router.navigate('/login'))
+            .catch((err) => {
+                console.log(err);
+                router.navigate('/register');
+            });
+    })
     .on('/add-car', () => {
         compile.compileTemplate('add-car')
             .then((temp) => {
@@ -93,6 +102,12 @@ $header.on('click', '#logout-user', () => {
         .then(() => {
             router.navigate('/home');
         });
+});
+
+$header.on('click', '#register-btn', () => {
+    if (formValid.validate()) {
+        router.navigate('/registration');
+    }
 });
 
 content.on('click', '#hide-grid', () => {
