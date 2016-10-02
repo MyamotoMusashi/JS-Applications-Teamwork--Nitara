@@ -38,9 +38,14 @@ let users = (function () {
 
 
     function getUserById(userId) {
-        let user = usersData.getById(userId.toString());
-
-        return user;
+        return new Promise((resolve, reject) => {
+            usersData.getById(userId.toString())
+                .then((data) => {
+                    resolve(data);
+                }, (err) => {
+                    reject(JSON.stringify(err));
+                });
+        });
     }
 
     function registerUser(userToAdd) {
@@ -101,33 +106,23 @@ let users = (function () {
         });
     }
 
-    function listUsers() {
-        let usersToReturn = [],
-            registredUsers = getUsersFromDB();
-
-        registredUsers.forEach(function (user) {
-            usersToReturn.push({
-                name: `${user.Firstname} ${user.Lastname}`,
-                email: user.Email
-            });
-        });
-
-        return usersToReturn;
-    }
-
     return {
         getUserById,
         registerUser,
-        loginUser,
-        listUsers
+        loginUser
     };
 } ());
 
 let cars = function () {
     function getCarById(carId) {
-        let car = carsData.getById(carId.toString());
-
-        return car;
+        return new Promise((resolve, reject) => {
+            carsData.getById(carId.toString())
+                .then((data) => {
+                    resolve(data);
+                }, (err) => {
+                    reject(JSON.stringify(err));
+                });
+        });
     }
 
     function getCarsFromDB() {
@@ -202,9 +197,41 @@ let orders = (function () {
         return order;
     }
 
-    return {
-        getOrderById
+    function addOrder(order) {
+        return new Promise((resolve, reject) => {
+            Promise.all([cars.getCarById(order.carId), users.getUserById(order.userId)])
+                    .then(([car, user])=> {
+                        let orderedCar = car.result,
+                            customer = user.result;
+
+                            if (orderedCar.IsHired) {
+                                reject('This car is already hired!');
+                                return;
+                            }
+
+                            ordersData.create({
+                                State: order.state,
+                                UserID: order.userId,
+                                CarID: order.carId,
+                                EndDate: order.endDate,
+                                StartDate: order.startDate,
+                                DeliveryPlace: order.deliveryPlace,
+                                PickUpPlace: order.pickUpPlace
+                            },(data) => {
+                                console.log(data);
+                                resolve(data);
+                            }, (err) => {
+                                reject(err);
+                            });
+
+                    });
+        });
     }
+
+    return {
+        getOrderById,
+        addOrder
+    };
 } ());
 
 export {users, cars, orders};
