@@ -4,7 +4,7 @@ import { formValid } from './models/formValidation.js';
 import { login, register } from './controllers/userController.js';
 import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
-import { users, cars } from '../db/db.js';
+import { users, cars,orders } from '../db/db.js';
 import { grid } from './test.js';
 import {PageController} from './controllers/pageController.js';
 
@@ -22,6 +22,23 @@ let isGridShowed = false;
 router
     .on('/home', () => {
         PageController.showStartupPage();
+        // formContainer.html('');
+        // content.html('');
+        // let username = localStorage.getItem('username-key');
+        // if (username) {
+        //     login.showLoggedUser({
+        //         name: username,
+        //         authKey: localStorage.getItem('authkey-key'),
+        //         adminRules: users.checkUserForAdminRules(localStorage.getItem('authkey-key'))
+        //     });
+        // }
+
+        // $('#grid-btn').html('View free cars');
+
+        // compile.compileTemplate('order')
+        //     .then((temp) => {
+        //         content.html(temp);
+        //     });
     })
     .on('/login', () => {
         compile.compileTemplate('login')
@@ -68,9 +85,37 @@ router
                 router.navigate('/home');
             });
     })
+    .on('/view-active-orders', () => {
+        orders.getAllOrders()
+        .then((orders) => {
+            let promise = new Promise((resolve) => {
+                let promises = [];
+                for(var i = 0; i < orders.result.length; i+=1){
+                    var p = (new Promise((resolve) => {let order = orders.result[i];
+                        let promise2 = Promise.all([cars.getCarById(order.CarID),users.getUserById(order.UserID)])
+                        .then((values) =>{
+                            order.CarDetails = values[0].result;
+                            order.UserDetails = values[1].result;
+                        })
+                        .then(() => resolve())
+                    }))
+                    promises.push(p)
+                }
+
+                Promise.all(promises).then(() => resolve(orders))
+            })
+            .then((orders) => {
+                $.get('../templates/view-active-orders.handlebars', (template) =>{
+                    let templateScript = Handlebars.compile(template),
+                        html = templateScript(orders.result);
+                    content.html(html);
+                });
+            })           
+        })
+    })
     .on('/cars-gallery', () => {
-            grid.createGridContainer()
-                .then(grid.showGrid)
+        grid.createGridContainer()
+            .then(grid.showGrid)
     })
     .on('/quick-rent', () => {
         $.get('../templates/quick-rental-form.handlebars', (html) => {
@@ -104,7 +149,7 @@ $header.on('click', '#register-btn', () => {
 });
 
 content.on('click', '#hide-grid', () => {
-        router.navigate('/home');
+    router.navigate('/home');
 });
 
 content.on('click', '#btn-page', function () {
@@ -115,3 +160,7 @@ content.on('click', '#btn-page', function () {
 content.on('click', '#show-available-cars', function () {
     router.navigate('/cars-gallery');
 });
+
+content.on('click', '.btn-rent', function(){
+    console.log("ivan");
+})
