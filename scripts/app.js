@@ -40,6 +40,10 @@ router
             .then(login.showLoggedUser)
             .then(() => {
                 router.navigate('/home');
+            })
+            .catch((err) => {
+                console.log(err);
+                router.navigate('/login');
             });
     })
     .on('/register', () => {
@@ -79,7 +83,6 @@ router
         }, 1500);
     })
     .on('/sortBy/:sortingType', (param) => {
-        console.log(param);
         let pageIndex = $('#grid-container').attr('data-index') - 1;
         grid.showGrid(pageIndex, param.sortingType);
     })

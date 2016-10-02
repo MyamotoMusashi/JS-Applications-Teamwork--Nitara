@@ -21,7 +21,7 @@ let login = (function() {
                     localStorage.setItem(AUTHKEY_STORAGE_KEY, user.authKey);
                     resolve(user);
                 })
-                .catch(err => console.log('Invalid email or password!'));
+                .catch(err => reject('Invalid email or password!'));
         });
     }
 
