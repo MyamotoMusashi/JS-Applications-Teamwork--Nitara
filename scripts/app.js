@@ -6,6 +6,7 @@ import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
 import { users, cars } from '../db/db.js';
 import { grid } from './test.js';
+import {PageController} from './controllers/pageController.js';
 
 window.onload = function() {
     window.location = '#/home';
@@ -20,23 +21,24 @@ let isGridShowed = false;
 
 router
     .on('/home', () => {
-        formContainer.html('');
-        content.html('');
-        let username = localStorage.getItem('username-key');
-        if (username) {
-            login.showLoggedUser({
-                name: username,
-                authKey: localStorage.getItem('authkey-key'),
-                adminRules: users.checkUserForAdminRules(localStorage.getItem('authkey-key'))
-            });
-        }
+        PageController.showStartupPage();
+        // formContainer.html('');
+        // content.html('');
+        // let username = localStorage.getItem('username-key');
+        // if (username) {
+        //     login.showLoggedUser({
+        //         name: username,
+        //         authKey: localStorage.getItem('authkey-key'),
+        //         adminRules: users.checkUserForAdminRules(localStorage.getItem('authkey-key'))
+        //     });
+        // }
 
-        $('#grid-btn').html('View free cars');
+        // $('#grid-btn').html('View free cars');
 
-        compile.compileTemplate('order')
-            .then((temp) => {
-                content.html(temp);
-            });
+        // compile.compileTemplate('order')
+        //     .then((temp) => {
+        //         content.html(temp);
+        //     });
     })
     .on('/login', () => {
         compile.compileTemplate('login')

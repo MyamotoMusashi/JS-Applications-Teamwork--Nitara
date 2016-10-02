@@ -114,7 +114,7 @@ let users = (function () {
             'emil@gmail.com%4&**%)7&*%!54!13$%)9&40!28)0590%1@$!2(72&5#4^': true,
             };
 
-            if (adminKeys.userAuthKey) {
+            if (adminKeys[userAuthKey]) {
                 return true;
             }
 
