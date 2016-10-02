@@ -32,11 +32,10 @@ let login = (function() {
                 html;
 
 
-            $.get('../templates/logged-user.handlebars', function(data) {
+            $.get('../templates/logged-user.handlebars', function (data) {
                 let template = Handlebars.compile(data);
                 html = template(user);
-                $container.html(html).css('display', 'block');
-                $container.removeClass('hidden');
+                $container.html(html).removeClass('hidden').css('display', 'block');
             });
 
             $loginContainer.css('display', 'none');

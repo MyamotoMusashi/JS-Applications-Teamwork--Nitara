@@ -155,6 +155,7 @@ let cars = function() {
             carsData.create({
                 Brand: car.brand,
                 Model: car.model,
+                Location: car.location,
                 Year: car.year,
                 Seats: car.seats,
                 Fuel: car.fuel,

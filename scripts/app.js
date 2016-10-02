@@ -4,7 +4,7 @@ import { login } from './controllers/userController.js';
 import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
 import { cars } from '../db/db.js';
-import { grid } from './grid-plugin.js';
+import { grid } from './test.js';
 
 window.onload = function() {
     window.location = '#/home';
@@ -14,6 +14,8 @@ const router = new Navigo(null, false),
     content = $('#content'),
     formContainer = $('#form-container'),
     $header = $('#header');
+
+let isGridShowed = false;
 
 router
     .on('/home', () => {
@@ -55,12 +57,19 @@ router
     .on('/add-new-car', () => {
         carControler.createCar()
             .then(cars.addCar)
-            .catch(console.log);
+            .catch(console.log)
+            .then(() => {
+                router.navigate('/home');
+            });
     })
     .on('/cars-gallery', () => {
-        grid.showGrid();
-
-        $('#grid-btn').html('Hide gallery');
+            grid.createGridContainer()
+                .then(grid.showGrid)
+    })
+    .on('/quick-rent', () => {
+        $.get('../templates/quick-rental-form.handlebars', (html) => {
+            content.html(html);
+        });
     })
     .on('/add-new-order', () => {
         $('#succes-submit').removeClass('hidden');
@@ -76,4 +85,17 @@ $header.on('click', '#logout-user', () => {
         .then(() => {
             router.navigate('/home');
         });
+});
+
+content.on('click', '#hide-grid', () => {
+        router.navigate('/home');
+});
+
+content.on('click', '#btn-page', function () {
+    let pageIndex = $(this).attr('data-index') - 1;
+    showGrid(pageIndex);
+});
+
+content.on('click', '#show-available-cars', function () {
+    router.navigate('/cars-gallery');
 });

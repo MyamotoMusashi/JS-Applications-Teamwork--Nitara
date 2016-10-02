@@ -2,6 +2,7 @@
     <div class="row">
         <div class="row">
             {{#each this}}
+<<<<<<< HEAD
                 <div class="col-md-4 box1">
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1 well">
@@ -73,3 +74,74 @@
         <ul id="page-navigator" class="pagination"></ul>
     </div>
 </div>
+=======
+            <div class="col-md-4 box1">
+                <div class="row">
+                    <div class="col-md-10 col-md-offset-1 well">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h4>{{Brand}} {{Model}}</h4>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <img src="{{Image}}" class="img-responsive img-thumbnail">
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button class="btn btn-primary"><span class="small">Rent {{PricePerDay}}$/day</span></button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button class="btn btn-info" data-toggle="modal" data-target="#modal-{{@index}}"><span class="small">Details</span></button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <p><img src="../imgs/car-details/location.png" class="car-details-icon" title="Location">:  {{Location}}</p>
+                                <p><img src="../imgs/car-details/seats.jpg" class="car-details-icon" title="Seats">: {{Seats}}</p>
+                                <p><img src="../imgs/car-details/fuel.jpg" class="car-details-icon" title="Fuel type">: {{Fuel}} </p>
+                                <p><img src="../imgs/car-details/gears.jpg" class="car-details-icon" title="Gears type">: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
+                                <p><img src="../imgs/car-details/fuel-consumation.png" class="car-details-icon" title="Fuel consumation per 100 km.">: {{Extras.FuelConsumation}} / 100</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="modal-{{@index}}" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <!-- Modal content-->
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            <h4 class="modal-title">{{Brand}} {{Model}}</h4>
+                        </div>
+                        <div class="modal-body">
+                            <img src="{{Image}}" class="img-responsive img-thumbnail" />
+                            <p>Year Of Manufacturing:  {{Year}}</p>
+                            <p>Insuarance: {{#if Extras.Insuarance}}Yes{{else}}No{{/if}}</p>
+                            <p><img src="../imgs/car-details/location.png" class="car-details-icon" title="Location">:  {{Location}}</p>
+                            <p><img src="../imgs/car-details/seats.jpg" class="car-details-icon" title="Seats">: {{Seats}}</p>
+                            <p><img src="../imgs/car-details/fuel.jpg" class="car-details-icon" title="Fuel type">: {{Fuel}} </p>
+                            <p><img src="../imgs/car-details/gears.jpg" class="car-details-icon" title="Gears type">: {{#if Extras.Automatic}}Automatic{{else}}Manual{{/if}}</p>
+                            <p><img src="../imgs/car-details/fuel-consumation.png" class="car-details-icon" title="Fuel consumation per 100 km.">: {{Extras.FuelConsumation}} / 100</p>
+                            <p><img src="../imgs/car-details/air-conditioning.png" class="car-details-icon" title="Air-conditioning">: {{#if Extras.Clima}}Yes{{else}}No{{/if}}</p>
+                            <p><img src="../imgs/car-details/gps.png" class="car-details-icon" title="GPS navigation">: {{#if Extras.Gps}}Yes{{else}}No{{/if}}</p>
+                            <p><img src="../imgs/car-details/leather.png" class="car-details-icon" title="Leather seats">: {{#if Extras.Leather}}Yes{{else}}No{{/if}}</p>
+                            <p>4x4: {{#if Extras.Quatro}}Yes{{else}}No{{/if}}</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <ul id="page-navigator" class="pagination"></ul>
+    </div>
+>>>>>>> refs/remotes/origin/pavel
