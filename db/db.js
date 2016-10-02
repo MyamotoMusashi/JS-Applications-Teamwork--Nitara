@@ -257,6 +257,7 @@ let orders = (function () {
 
     return {
         getOrderById,
+        getAllOrders,
         addOrder
     };
 } ());
