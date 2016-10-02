@@ -5,6 +5,7 @@ import { users } from 'db';
 
 const USERNAME_STORAGE_KEY = 'username-key';
 const AUTHKEY_STORAGE_KEY = 'authkey-key';
+const ADMIN_RULES_KEY = 'adminrules-key';
 
 let login = (function() {
 
@@ -30,7 +31,6 @@ let login = (function() {
             let $container = $('#logged-user'),
                 $loginContainer = $('#login-container'),
                 html;
-
 
             $.get('../templates/logged-user.handlebars', function (data) {
                 let template = Handlebars.compile(data);

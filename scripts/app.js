@@ -4,7 +4,7 @@ import { formValid } from './models/formValidation.js';
 import { login, register } from './controllers/userController.js';
 import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
-import { cars } from '../db/db.js';
+import { users, cars } from '../db/db.js';
 import { grid } from './test.js';
 
 window.onload = function() {
@@ -22,6 +22,14 @@ router
     .on('/home', () => {
         formContainer.html('');
         content.html('');
+        let username = localStorage.getItem('username-key');
+        if (username) {
+            login.showLoggedUser({
+                name: username,
+                authKey: localStorage.getItem('authkey-key'),
+                adminRules: users.checkUserForAdminRules(localStorage.getItem('authkey-key'))
+            });
+        }
 
         $('#grid-btn').html('View free cars');
 

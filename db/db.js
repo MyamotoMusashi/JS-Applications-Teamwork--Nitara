@@ -93,8 +93,7 @@ let users = (function () {
                             if (user.Email === email && user.PasswordHash === password) {
                                 userToLog = {
                                     name: `${user.Firstname} ${user.Lastname}`,
-                                    authKey: user.Auth_Key,
-                                    adminRules: user.AdminRules
+                                    authKey: user.Auth_Key
                                 };
                             }
                         });
@@ -106,10 +105,27 @@ let users = (function () {
         });
     }
 
+    function checkUserForAdminRules(userAuthKey) {
+        let adminKeys = {
+            'some@email.com50*^)91@00403(#)^9*@!7!^32830^#248@6%99!!2&*)4': true,
+            'saw4o@abv.bg465^8!523656$@5#$(4**#875)5^)%89#8^*87)3914!2838': true,
+            'veselin@abv.bg1%61%(2((!2^)%^51051(#@@*8@6(!1(0%)!29#&!)#7$2': true,
+            'veselin93@abv.bg89)344@3*$##3#1@&885581^)8(0@$7^*!@93$5@7593': true,
+            'emil@gmail.com%4&**%)7&*%!54!13$%)9&40!28)0590%1@$!2(72&5#4^': true,
+            };
+
+            if (adminKeys.userAuthKey) {
+                return true;
+            }
+
+            return false;
+    }
+
     return {
         getUserById,
         registerUser,
-        loginUser
+        loginUser,
+        checkUserForAdminRules
     };
 } ());
 
@@ -195,6 +211,17 @@ let orders = (function () {
         let order = ordersData.getById(orderId.toString());
 
         return order;
+    }
+
+    function getAllOrders() {
+        return new Promise((resolve, reject) => {
+            ordersData.get()
+                .then(function (ordersFromDB) {
+                    resolve(ordersFromDB);
+                }, function (error) {
+                    reject(JSON.stringify(error));
+                });
+        });
     }
 
     function addOrder(order) {
