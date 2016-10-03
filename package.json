@@ -4,7 +4,7 @@
   "description": "*****************************************",
   "main": "index.js",
   "scripts": {
-    "start": "http-server && start chrome http://127.0.0.1:8080/router-test.html",
+    "start": "start chrome http://127.0.0.1:8080/index.html && http-server",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

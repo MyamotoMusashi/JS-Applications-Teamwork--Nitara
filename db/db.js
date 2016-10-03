@@ -1,5 +1,5 @@
-import {userModule} from 'user';
-import {carModule} from 'car';
+import {userModule} from '../scripts/models/user.js';
+import {carModule} from '../scripts/models/car.js';
 import {orderModule} from '../scripts/models/order.js';
 
 const API_KEY = 'iohp9okes3xh165v';

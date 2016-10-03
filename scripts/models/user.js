@@ -1,4 +1,4 @@
-import {UserValidator as validator} from 'userValidator';
+import {UserValidator as validator} from './userValidations.js';
 
 let userModule = (function () {
 
@@ -38,13 +38,6 @@ let userModule = (function () {
             this._password = value;
         }
     }
-
-    // let getId = function getId() {
-    //     let lastId = 0;
-    //     return function () {
-    //         return ++lastId;
-    //     };
-    // } ();
 
     function createUser(firstname, lastname, password, email) {
         return new User(firstname, lastname, password, email);

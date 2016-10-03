@@ -1,6 +1,5 @@
 /// <reference path="../../typings/index.d.ts" />
 
-import 'jquery';
 import { carModule } from '../models/car.js';
 
 let carControler = function () {

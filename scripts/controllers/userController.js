@@ -1,7 +1,6 @@
-import 'jquery';
 import 'cryptoJS';
-import { userModule } from 'user';
-import { users } from 'db';
+import { userModule } from '../models/user.js';
+import { users } from '../../db/db.js';
 
 const USERNAME_STORAGE_KEY = 'username-key';
 const AUTHKEY_STORAGE_KEY = 'authkey-key';

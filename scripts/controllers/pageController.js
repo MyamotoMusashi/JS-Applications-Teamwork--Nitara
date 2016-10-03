@@ -12,25 +12,6 @@ let PageController = function () {
                 .then(clearContent)
                 .then(showGridButtons)
                 .then(showStartupGrid);
-
-
-            // formContainer.html('');
-            // content.html('');
-            // let username = localStorage.getItem('username-key');
-            // if (username) {
-            //     login.showLoggedUser({
-            //         name: username,
-            //         authKey: localStorage.getItem('authkey-key'),
-            //         adminRules: users.checkUserForAdminRules(localStorage.getItem('authkey-key'))
-            //     });
-            // }
-
-            // $('#grid-btn').html('View free cars');
-
-            // compile.compileTemplate('order')
-            //     .then((temp) => {
-            //         content.html(temp);
-            //     });
         });
     }
     function logUser() {
