@@ -50,9 +50,9 @@ We used:
 
 * **If you use Windows**:
         
-        - _If you use Chrome_: The application will be opened in Chrome
+        - _If_ you use Chrome_: The application will be opened in Chrome
         - _Else_: Open this link in your browser: http://127.0.0.1:8080/index.html
 
 * **Else**:
 
-        - Open this link in your browser: http://127.0.0.1:8080/index.html
+         Open this link in your browser: http://127.0.0.1:8080/index.html
