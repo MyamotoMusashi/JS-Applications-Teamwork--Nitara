@@ -5,7 +5,7 @@ import { login, register } from './controllers/userController.js';
 import { carControler } from './controllers/carController.js';
 import { compile } from '../utils/template.js';
 import { users, cars,orders } from '../db/db.js';
-import { grid } from './test.js';
+import { grid } from './gridLoader.js';
 import {PageController} from './controllers/pageController.js';
 
 window.onload = function() {
